@@ -7,6 +7,7 @@ Objetivo: aplicar os conceitos básicos de sistemas de referências e modelagem 
 ## Material  
 
 [cg-slides_u2.pdf](./cg-slides_u2.pdf "cg-slides_u2.pdf")  
+[anotações do quadro](aulaAnotacoesQuadro)  
 
 ## Ambiente de Desenvolvimento
 
