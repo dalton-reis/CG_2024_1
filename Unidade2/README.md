@@ -15,7 +15,7 @@ Para iniciar as atividades precisamos configurar o [Ambiente de Desenvolvimento]
 
 ### OpenTK - Testar Ambiente
 
-Agora que já temos o [Ambiente de Desenvolvimento](AmbienteDesenvolvimento.md "Ambiente de Desenvolvimento") instalado vamos testá-lo usando alguns projetos de exemplo.   
+Agora que já temos o [Ambiente de Desenvolvimento](AmbienteDesenvolvimento.md "Ambiente de Desenvolvimento") instalado vamos testá-lo usando alguns projetos de exemplo.  
 
 #### 1-CreatingAWindow
 
