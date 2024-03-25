@@ -1,6 +1,6 @@
 # Ambiente de Desenvolvimento
 
-Para o desenvolvimento do nosso código gráfico iremos usar a biblioteca OpenGL por intermédio do OpenTK, com a linguagem C# e a IDE VSCode.  
+Para o desenvolvimento do nosso código gráfico iremos usar a biblioteca OpenGL por intermédio do OpenTK, com a linguagem C# (SDK .Net) e a IDE VSCode.  
 
 ## SDK .Net
 
@@ -41,9 +41,9 @@ O segundo passo é instalar a IDE VSCode (ou outra da sua escolha)
 
 <https://code.visualstudio.com/>  
 
-Não esqueça de também instalar a extensão para CSharp <https://marketplace.visualstudio.com/items?itemName=ms-dotnettools.vscode-dotnet-runtime>. Está extensão instala as extensões: <https://marketplace.visualstudio.com/items?itemName=ms-dotnettools.csharp> e <https://marketplace.visualstudio.com/items?itemName=ms-vscode.csharp>  
+Não esqueça de também instalar a extensão para CSharp <https://marketplace.visualstudio.com/items?itemName=ms-dotnettools.vscode-dotnet-runtime>. E, estas extensões: <https://marketplace.visualstudio.com/items?itemName=ms-dotnettools.csharp> e <https://marketplace.visualstudio.com/items?itemName=ms-vscode.csharp>  
 
-Se necessário, se pode obter mais informações sobre extensões do VSCode em: [https://code.visualstudio.com/docs/editor/extension-gallery](https://code.visualstudio.com/docs/editor/extension-gallery "https://code.visualstudio.com/docs/editor/extension-gallery")  
+Se necessário, tem mais informações sobre extensões do VSCode em: [https://code.visualstudio.com/docs/editor/extension-gallery](https://code.visualstudio.com/docs/editor/extension-gallery "https://code.visualstudio.com/docs/editor/extension-gallery")  
 
 As extensões que eu uso podem ser vistas em: <https://github.com/dalton-reis/dalton-reis#vscode>  
 
@@ -53,18 +53,18 @@ Para testar a IDE VSCode abra o projeto criado.
 
 ## Toolkit OpenTK
 
-O terceiro passo é fazer com que o projeto use as dependências do Toolkit OpenTK no projeto criado:  
+O terceiro passo é fazer com que o projeto use as dependências do Toolkit OpenTK (para usar o OpenGL no C#) no projeto criado:  
 
   $ dotnet add package OpenTK --version 4.8.2
 
 ### Testar o OpenTK
 
-Nesse ponto, para testar se o OpenTK está funcionando a linha 'using OpenTK;' no cabeçalho da classe:  
+Nesse ponto, para testar se o OpenTK está funcionando acrescente a linha 'using OpenTK;' no cabeçalho da classe do arquivo Program.cs:  
 
   using OpenTK;  
 
 Se nenhum erro ocorrer é porque o OpenTK já está disponível para ser usado.  
-Caso ocorra algum erro de 'undefined command' tente executar o comando no terminal para recarregar o projeto:  
+Caso ocorra algum erro de 'undefined command' tente executar o comando no terminal para recarregar as dependências do projeto:  
 
   $ dotnet restore
 
