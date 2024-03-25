@@ -51,9 +51,12 @@ Usando o fonte do projeto: **2-HelloTriangle** faça.
     G: 129      <!-- 129/256 = 0.50390625 -->
     B: 255      <!-- 255/256 = 0.99609375 -->
 
+Antes - Depois  
+![2-HelloTriangle_antes](OpenTK/Chapter1/2-HelloTriangle/2-HelloTriangle_antes.png) ![2-HelloTriangle_depois](OpenTK/Chapter1/2-HelloTriangle/2-HelloTriangle_depois.png)  
+
 #### Exercício B
 
-- desenhar um quadrado em vez de um triângulo  
+- Desenhar um quadrado em vez de um triângulo usando os pontos abaixo:  
 <https://www.geogebra.org/geometry/ef2ghh35>  
 ![geogebraQuadrado](OpenTK/Chapter1/2-HelloTriangle/geogebraQuadrado.png)  
 
