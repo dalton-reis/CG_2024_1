@@ -9,7 +9,7 @@ using System.Collections.Generic;
 
 namespace gcgcg
 {
-  internal class Objeto  // TODO: deveria ser uma class abstract ..??
+  internal class Objeto  //TODO: deveria ser uma class abstract ..??
   {
     // Objeto
     private readonly char rotulo;
@@ -22,7 +22,8 @@ namespace gcgcg
     private Shader _shaderObjeto = new Shader("Shaders/shader.vert", "Shaders/shaderBranca.frag");
     public Shader shaderObjeto { set => _shaderObjeto = value; }
 
-    // Vértices do objeto TODO: o objeto mundo deveria ter estes atributos abaixo?
+    // Vértices do objeto
+    //TODO: o objeto mundo deveria ter estes atributos abaixo?
     protected List<Ponto4D> pontosLista = new List<Ponto4D>();
     private int _vertexBufferObject;
     private int _vertexArrayObject;

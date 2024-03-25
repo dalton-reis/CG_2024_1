@@ -38,7 +38,7 @@ namespace gcgcg
 
         private bool mouseMovtoPrimeiro = true;
         private Ponto4D mouseMovtoUltimo;
-        private Vector2 _lastPos;
+        //private Vector2 _lastPos;
 
         public Mundo(GameWindowSettings gameWindowSettings, NativeWindowSettings nativeWindowSettings)
                : base(gameWindowSettings, nativeWindowSettings)
@@ -151,7 +151,7 @@ namespace gcgcg
                     {
                         if (input.IsKeyPressed(Keys.Space))
                         {
-                            //[FIXME:] erro ...
+                            //FIXME: erro ...
                             objetoSelecionado = objetoSelecionado.GrafocenaBusca('B');
                             objetoSelecionado.ToString();
                         }
