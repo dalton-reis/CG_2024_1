@@ -148,6 +148,19 @@ namespace gcgcg
       return null;
     }
 
+    public Objeto GrafocenaBuscaProximo(Objeto objetoAtual)
+    {
+      objetoAtual = GrafocenaBusca(Utilitario.CharProximo(objetoAtual.rotulo));
+      if (objetoAtual != null)
+      {
+        return objetoAtual;
+      }
+      else
+      {
+        return GrafocenaBusca(Utilitario.CharProximo('@'));
+      }
+    }
+
     public void GrafocenaImprimir(String idt)
     {
       System.Console.WriteLine(idt + rotulo);

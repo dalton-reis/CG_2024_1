@@ -65,7 +65,7 @@ namespace CG_Biblioteca
       return (x1 + (x2 - x1) * ti);
     }
 
-    //FIXME: não implementado os casos especiais
+    //TODO: não implementado os casos especiais
     public static bool ScanLine(Ponto4D ptoClique, Ponto4D ptoIni, Ponto4D ptoFim)
     {
       double ti = ScanLineInterseccao(ptoClique.Y, ptoIni.Y, ptoFim.Y);

@@ -155,9 +155,9 @@ namespace gcgcg
                     {
                         if (input.IsKeyPressed(Keys.Space))
                         {
-                            //FIXME: erro ...
-                            objetoSelecionado = objetoSelecionado.GrafocenaBusca('B');
-                            objetoSelecionado.ToString();
+                            if (objetoSelecionado == null)
+                                objetoSelecionado = mundo;
+                            objetoSelecionado = mundo.GrafocenaBuscaProximo(objetoSelecionado);
                         }
                         else
                         {
@@ -177,6 +177,7 @@ namespace gcgcg
             Ponto4D mousePonto = new Ponto4D(MousePosition.X, MousePosition.Y);
             Ponto4D sruPonto = Utilitario.NDC_TelaSRU(janelaLargura, janelaAltura, mousePonto);
 
+            //FIXME: o movimento do mouse em relação ao eixo X está certo. Mas tem um erro no eixo Y,,, aumentar o valor do Y aumenta o erro.
             if (input.IsKeyDown(Keys.LeftShift))
             {
                 if (mouseMovtoPrimeiro)
