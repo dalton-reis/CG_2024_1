@@ -16,10 +16,11 @@ namespace gcgcg
                 Flags = ContextFlags.ForwardCompatible,
             };
 
-            using (var window = new Mundo(GameWindowSettings.Default, nativeWindowSettings))
-            {
-                window.Run();
-            }
+            //TODO: encontrar o comando certo para não dar problema de dobrar a resolução de tela no MacOS
+            // ToolkitOptions.Default.EnableHighResolution = false;
+
+            using var window = new Mundo(GameWindowSettings.Default, nativeWindowSettings);
+            window.Run();
         }
     }
 }

@@ -1,7 +1,8 @@
-﻿#define CG_Gizmo  // debugar gráfico.
+﻿//TODO: testar se estes DEFINEs continuam funcionado
+#define CG_Gizmo  // debugar gráfico.
 #define CG_OpenGL // render OpenGL.
 //#define CG_DirectX // render DirectX.
-//#define CG_Privado // código do professor.
+// #define CG_Privado // código do professor.
 
 using CG_Biblioteca;
 using OpenTK.Graphics.OpenGL4;
@@ -10,24 +11,23 @@ using OpenTK.Windowing.GraphicsLibraryFramework;
 using OpenTK.Windowing.Desktop;
 using System;
 using System.Collections.Generic;
-using OpenTK.Mathematics;
-
-//FIXME: padrão Singleton
+// using OpenTK.Mathematics;
 
 namespace gcgcg
 {
     public class Mundo : GameWindow
     {
-        Objeto mundo;
+        private static Objeto mundo = null;
+
         private char rotuloAtual = '?';
         private Objeto objetoSelecionado = null;
 
         private readonly float[] _sruEixos =
         {
-      -0.5f,  0.0f,  0.0f, /* X- */      0.5f,  0.0f,  0.0f, /* X+ */
-       0.0f, -0.5f,  0.0f, /* Y- */      0.0f,  0.5f,  0.0f, /* Y+ */
-       0.0f,  0.0f, -0.5f, /* Z- */      0.0f,  0.0f,  0.5f, /* Z+ */
-    };
+            -0.5f,  0.0f,  0.0f, /* X- */      0.5f,  0.0f,  0.0f, /* X+ */
+            0.0f, -0.5f,  0.0f, /* Y- */      0.0f,  0.5f,  0.0f, /* Y+ */
+            0.0f,  0.0f, -0.5f, /* Z- */      0.0f,  0.0f,  0.5f, /* Z+ */
+        };
 
         private int _vertexBufferObject_sruEixos;
         private int _vertexArrayObject_sruEixos;
@@ -43,7 +43,7 @@ namespace gcgcg
         public Mundo(GameWindowSettings gameWindowSettings, NativeWindowSettings nativeWindowSettings)
                : base(gameWindowSettings, nativeWindowSettings)
         {
-            mundo = new Objeto(null, ref rotuloAtual);
+            mundo ??= new Objeto(null, ref rotuloAtual); //padrão Singleton
         }
 
         protected override void OnLoad()
@@ -95,8 +95,12 @@ namespace gcgcg
             #endregion
 
 #if CG_Privado
-             #region Objeto: circulo  
-             objetoSelecionado = new Circulo(mundo, ref rotuloAtual, 0.2, new Ponto4D());
+             #region Objeto: circulo - origem
+             objetoSelecionado = new Circulo(mundo, ref rotuloAtual, 0.2);
+             objetoSelecionado.shaderObjeto = new Shader("Shaders/shader.vert", "Shaders/shaderAmarela.frag");
+             #endregion
+             #region Objeto: circulo
+             objetoSelecionado = new Circulo(mundo, ref rotuloAtual, 0.1, new Ponto4D(0.0,-0.5));
              objetoSelecionado.shaderObjeto = new Shader("Shaders/shader.vert", "Shaders/shaderAmarela.frag");
              #endregion
 

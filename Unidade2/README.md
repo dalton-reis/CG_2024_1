@@ -60,7 +60,7 @@ Antes - Depois
 <https://www.geogebra.org/geometry/ef2ghh35>  
 ![geogebraQuadrado](OpenTK/Chapter1/2-HelloTriangle/geogebraQuadrado.png)  
 
-## [Atividades - Aula](Atividade2.md "Atividades - Aula")  
+## [Atividades - Aula](Atividade2/README.md "Atividades - Aula")  
 
 ----------
 

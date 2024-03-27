@@ -30,7 +30,7 @@ namespace gcgcg
 
     // BBox do objeto
     private BBox bBox = new BBox();
-    public BBox Bbox()  // TODO: readonly
+    public BBox Bbox()  //TODO: readonly
     {
       return bBox;
     }
@@ -38,11 +38,11 @@ namespace gcgcg
     // Transformações do objeto
     private Transformacao4D matriz = new Transformacao4D();
 
-    public Objeto(Objeto paiRef, ref char _rotulo, Objeto objetoFilho = null)
+    public Objeto(Objeto _paiRef, ref char _rotulo, Objeto objetoFilho = null)
     {
-      this.paiRef = paiRef;
+      this.paiRef = _paiRef;
       rotulo = _rotulo = Utilitario.CharProximo(_rotulo);
-      if (paiRef != null)
+      if (_paiRef != null)
       {
         ObjetoAdicionar(objetoFilho);
       }
