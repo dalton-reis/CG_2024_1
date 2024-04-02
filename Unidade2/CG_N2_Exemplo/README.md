@@ -4,7 +4,7 @@ Lembre que para usar os projetos no VSCode sempre abra o ```code-workspace``` (n
 
 ## Especificação  
 
-A especificação deste projeto utilizou o [PlantUML](https://github.com/dalton-reis/dalton-reis/blob/main/_._/ferramentas.md#plantuml---editar-diagramas) e [GraphViz](https://graphviz.org/).  
+A especificação deste projeto utilizou o [PlantUML](https://github.com/dalton-reis/projetoEnsino/tree/main/_._/PlantUML) e [GraphViz](https://graphviz.org/).  
 
 ![include](https://www.plantuml.com/plantuml/svg/fLN1Zjem4BtdAonEGLrkFKKHMbYwgvNQBWMg7YkJc32LuqbjXz9k--zrdDWXWRJQXGEnnoypp_Dc9hTAKwdBd0S9fqgH9NB8K21v3eZvlV66iA2mOhleQVkDQRmX1GgDofr6xq7fU5dPtYwcu-RTECO3an9IDfsI3Qwr1965On8HPPV1dw1sH-BVauaF5JHSrd99EUYMYpDqkRXeCrsQqrzKsWW7XBH_i6HXmHv54gLORZaRWgqeO2ZDt_-XCv6L74Dg7uFm5-R1NTFbuKCfqZO9TXTcD6TVmAn-h9dMneUA7ivCDqHG3OS-yEC5uzXmQ1tKF6maBqR1GR1M2hlzfDEbaGFCnK7etgrho6krSczhczQciapPIJn2Zj4MaL-PPHl0NM_5T2sYlw6td5L-HMdtJdq_OQLnNHOBaCxqoWxmCHsjvj1pGbrHZ4Yofz8upvWsVkDOLK_Ni19oC0BJ3Ssfs5Ve7KUg1-3pBHujeVaSZusjZjg_DzhdFV0zzjIiTuEQBfXYOdzkjwvcAII0mfpkJZrtaG-IxZ1XWdPIU0AmQLUjBoE8b-8IyZ4D8NKrsm2xhhXcikkecdaA4eeNQlr9V1OcoMdBomixcKp9g1K52XnvZTZcPy4wGBMdAPDtA4TaRPU17yn2dqvbeIyLPh_-1ZLvyMWMxJow0vcSTagpxzFvMetGPY1QSgOEE2Pco8X_4Hq2NiM_eUY76SkgLckdMRs_sEdGQVDxoA_iyIQMrrLY9cbUTQKsSpanFfxD6y4j4sdrMJvR_0K0 "include")
 

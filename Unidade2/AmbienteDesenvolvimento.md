@@ -45,7 +45,7 @@ Não esqueça de também instalar a extensão para CSharp <https://marketplace.v
 
 Se necessário, tem mais informações sobre extensões do VSCode em: [https://code.visualstudio.com/docs/editor/extension-gallery](https://code.visualstudio.com/docs/editor/extension-gallery "https://code.visualstudio.com/docs/editor/extension-gallery")  
 
-As extensões que eu uso podem ser vistas em: <https://github.com/dalton-reis/dalton-reis#vscode>  
+As extensões que eu uso podem ser vistas em: <https://github.com/dalton-reis/dalton-reis/blob/main/_._/VSCode/VsCodeExtensoes.md>  
 
 ### Testar o VSCode
 
