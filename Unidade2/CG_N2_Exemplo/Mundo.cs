@@ -1,7 +1,7 @@
 ﻿//TODO: testar se estes DEFINEs continuam funcionado
 #define CG_Gizmo  // debugar gráfico.
 #define CG_OpenGL // render OpenGL.
-//#define CG_DirectX // render DirectX.
+// #define CG_DirectX // render DirectX.
 // #define CG_Privado // código do professor.
 
 using CG_Biblioteca;

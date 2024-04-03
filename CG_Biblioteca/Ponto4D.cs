@@ -45,7 +45,7 @@ namespace CG_Biblioteca
     /// </example>
     public static Ponto4D operator +(Ponto4D pto1, Ponto4D pto2) => new Ponto4D(pto1.X + pto2.X, pto1.Y + pto2.Y, pto1.Z + pto2.Z);
 
-    //TODO: a sobrescrição do operador + funciona mais o - ou -- não
+    //TODO: a sobrescrição do operador + funciona mais o - ou -- não .. ver: https://learn.microsoft.com/pt-br/dotnet/csharp/language-reference/operators/operator-overloading
     // public static Ponto4D operator -(Ponto4D pto) => new Ponto4D(-pto.X, -pto.Y, -pto.Z);
 
     //TODO: Testar estas funções e ver se precisam existir
