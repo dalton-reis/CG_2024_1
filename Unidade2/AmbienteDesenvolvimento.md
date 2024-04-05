@@ -41,7 +41,10 @@ O segundo passo é instalar a IDE VSCode (ou outra da sua escolha)
 
 <https://code.visualstudio.com/>  
 
-Não esqueça de também instalar a extensão para CSharp <https://marketplace.visualstudio.com/items?itemName=ms-dotnettools.vscode-dotnet-runtime>. E, esta extensão: <https://marketplace.visualstudio.com/items?itemName=ms-dotnettools.csharp> ou <https://marketplace.visualstudio.com/items?itemName=ms-vscode.csharp>  
+Não esqueça de também instalar a extensão para CSharp <https://marketplace.visualstudio.com/items?itemName=ms-dotnettools.vscode-dotnet-runtime>. E, esta extensão:
+
+- C# Dev Kit: <https://marketplace.visualstudio.com/items?itemName=ms-dotnettools.csdevkit>  
+- IntelliCode for C# Dev Kit: <https://marketplace.visualstudio.com/items?itemName=ms-dotnettools.vscodeintellicode-csharp>  
 
 Se necessário, tem mais informações sobre extensões do VSCode em: [https://code.visualstudio.com/docs/editor/extension-gallery](https://code.visualstudio.com/docs/editor/extension-gallery "https://code.visualstudio.com/docs/editor/extension-gallery")  
 
