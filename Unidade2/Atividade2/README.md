@@ -1,5 +1,5 @@
-[CG_Biblioteca]:            ../CG_Biblioteca/              "CG_Biblioteca"  
-[CG_Biblioteca_Matematica]: ../CG_Biblioteca/Matematica.cs "CG_Biblioteca_Matematica"  
+[CG_Biblioteca]:            ../../CG_Biblioteca/              "CG_Biblioteca"  
+[CG_Biblioteca_Matematica]: ../../CG_Biblioteca/Matematica.cs "CG_Biblioteca_Matematica"  
 [CG_N2_Exemplo]:            ../CG_N2_Exemplo/              "CG_N2_Exemplo"  
 
 # Unidade 2: OpenGL (OpenTK) - atividade  
