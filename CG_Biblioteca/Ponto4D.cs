@@ -81,7 +81,7 @@ namespace CG_Biblioteca
     {
       string retorno;
       retorno = "__ Ponto4D: " + "\n";
-      retorno += "P" + "[" + x + "," + y + "," + z + "," + w + "]" + "\n";
+      retorno += "P" + "[" + string.Format("{0,10}", x) + "," + string.Format("{0,10}", y) + "," + string.Format("{0,10}", z) + "," + string.Format("{0,10}", w) + "]" + "\n";
       return (retorno);
     }
 #endif

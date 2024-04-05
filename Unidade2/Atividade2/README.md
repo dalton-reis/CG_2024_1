@@ -69,7 +69,7 @@ Veja o exemplo no vídeo a baixo.
 Usem as classes:
 
 - [SegReta.cs](../CG_N2_Exemplo/SegReta.cs "SegReta.cs") para desenhar o poliedro de controle;  
-- [Ponto.cs](../CG_N2_Exemplo/Ponto.cs "Ponto$$.cs") para desenhar os pontos de controles; e  
+- [Ponto.cs](../CG_N2_Exemplo/Ponto.cs "Ponto.cs") para desenhar os pontos de controles; e  
 - ```Spline.cs```, crie uma nova classe para representar o objeto gráfico Spline.  
 
 O resultado final deve ser o mais parecido com o código: [CG_N2_4_win10-x64.zip](./CG_N2_4_win10-x64.zip "CG_N2_4_win10-x64.zip")  
