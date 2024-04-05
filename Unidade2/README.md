@@ -94,11 +94,11 @@ O material utilizado nesta disciplina é baseado nessas Referências Bibliográf
 
 ### Links IDE VSCode
 
-<https://github.com/dalton-reis/projetoEnsino/tree/main/_._/VSCode>  
+<https://github.com/LDTTFURB/site/tree/main/projetoEnsino/_._/VSCode>  
 
 ### Links C\#
 
-<https://github.com/dalton-reis/projetoEnsino/tree/main/_._/CSharp>  
+<https://github.com/LDTTFURB/site/tree/main/projetoEnsino/_._/CSharp>  
 
 ## Rabiscos
 
