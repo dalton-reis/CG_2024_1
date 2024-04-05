@@ -16,7 +16,7 @@ Lembretes:
 
 ## 1. Círculo no centro do SRU  
 
-Implemente uma aplicação para desenhar um círculo no centro do Sistema de Referência do Universo (SRU), com raio de valor 0.5. Utilize 72 pontos (com um tamanho do ponto de 5) simetricamente distribuídos sobre o perímetro do círculo, de forma que o resultado final seja o mais parecido com o código: [CG_N2_1_win10-x64.zip](./CG_N2_1_win10-x64.zip "CG_N2_1_win10-x64.zip"). Neste caso crie uma nova classe com o nome ```Circulo``` em ```Circulo.cs```, e usem como base as classes: [Ponto.cs](./CG_N2_Exemplo/Ponto.cs), [SegReta.cs](./CG_N2_Exemplo/SegReta.cs), [Retangulo.cs](./CG_N2_Exemplo/Retangulo.cs) e [Poligono.cs](./CG_N2_Exemplo/Poligono.cs).  
+Implemente uma aplicação para desenhar um círculo no centro do Sistema de Referência do Universo (SRU), com raio de valor 0.5. Utilize 72 pontos (com um tamanho do ponto de 5) simetricamente distribuídos sobre o perímetro do círculo, de forma que o resultado final seja o mais parecido com o código: [CG_N2_1_win10-x64.zip](./CG_N2_1_win10-x64.zip "CG_N2_1_win10-x64.zip"). Neste caso crie uma nova classe com o nome ```Circulo``` em ```Circulo.cs```, e usem como base as classes: [Ponto.cs](../CG_N2_Exemplo/Ponto.cs), [SegReta.cs](../CG_N2_Exemplo/SegReta.cs), [Retangulo.cs](../CG_N2_Exemplo/Retangulo.cs) e [Poligono.cs](../CG_N2_Exemplo/Poligono.cs).  
 
 Observações:  
 
@@ -27,7 +27,7 @@ Observações:
 
 ## 2. Primitivas geométricas  
 
-Nesta aplicação a ideia é explorar a utilização das “primitivas geométricas” de forma que o resultado final seja o mais parecido com o código: [CG_N2_2_win10-x64.zip](./CG_N2_2_win10-x64.zip "CG_N2_2_win10-x64.zip"). Aqui se pode usar a classe [Retangulo.cs](./CG_N2_Exemplo/Retangulo.cs).  
+Nesta aplicação a ideia é explorar a utilização das “primitivas geométricas” de forma que o resultado final seja o mais parecido com o código: [CG_N2_2_win10-x64.zip](./CG_N2_2_win10-x64.zip "CG_N2_2_win10-x64.zip"). Aqui se pode usar a classe [Retangulo.cs](../CG_N2_Exemplo/Retangulo.cs).  
 
 No caso a interação deve ser:  
 
@@ -36,7 +36,7 @@ No caso a interação deve ser:
 
 ## 3. Sr. Palito, dando seus primeiros passos  
 
-Agora, crie uma nova aplicação com o objetivo de um Segmento de Reta (SR) se transformar no Sr. "Palito". Para isto usem como base as classes [SegReta.cs](./CG_N2_Exemplo/SegReta.cs "SegReta.cs") e ```Circulo.cs``` criada no [Exercício 1](#1-círculo-no-centro-do-sru "Exercício 1").
+Agora, crie uma nova aplicação com o objetivo de um Segmento de Reta (SR) se transformar no Sr. "Palito". Para isto usem como base as classes [SegReta.cs](../CG_N2_Exemplo/SegReta.cs "SegReta.cs") e ```Circulo.cs``` criada no [Exercício 1](#1-círculo-no-centro-do-sru "Exercício 1").
 
 Como o Sr. Palito está dando os seus primeiros passos por enquanto ele só consegue:  
 
@@ -46,7 +46,7 @@ Como o Sr. Palito está dando os seus primeiros passos por enquanto ele só cons
 
 Ao Sr. Palito "nasce" está com os seus "pés" na origem, e sua "cabeça" na posição definida com raio de valor 0.5 e ângulo 45º.  
 
-Ah ... o Sr. Palito não se parece muito com o "desenho" do [segmento de reta](./CG_N2_Exemplo/SegReta.cs) que representa um raio de uma [circunferência](#1-círculo-no-centro-do-sru) !!  
+Ah ... o Sr. Palito não se parece muito com o "desenho" do [segmento de reta](../CG_N2_Exemplo/SegReta.cs) que representa um raio de uma [circunferência](#1-círculo-no-centro-do-sru) !!  
 
 Se quiser como é o Sr. Palito "engatinhando" nos seus primeiros dias de "vida" olhem o código: [CG_N2_3_win10-x64.zip](./CG_N2_3_win10-x64.zip "CG_N2_3_win10-x64.zip").
 
@@ -68,8 +68,8 @@ Veja o exemplo no vídeo a baixo.
 
 Usem as classes:
 
-- [SegReta.cs](./CG_N2_Exemplo/SegReta.cs "SegReta.cs") para desenhar o poliedro de controle;  
-- [Ponto.cs](./CG_N2_Exemplo/Ponto.cs "Ponto$$.cs") para desenhar os pontos de controles; e  
+- [SegReta.cs](../CG_N2_Exemplo/SegReta.cs "SegReta.cs") para desenhar o poliedro de controle;  
+- [Ponto.cs](../CG_N2_Exemplo/Ponto.cs "Ponto$$.cs") para desenhar os pontos de controles; e  
 - ```Spline.cs```, crie uma nova classe para representar o objeto gráfico Spline.  
 
 O resultado final deve ser o mais parecido com o código: [CG_N2_4_win10-x64.zip](./CG_N2_4_win10-x64.zip "CG_N2_4_win10-x64.zip")  
@@ -88,8 +88,8 @@ Para controlar o movimento do centro do círculo menor deve ser usado (neste ord
 Aqui só use as classes:
 
 - ```Circulo.cs```: para criar os círculos maior e menor (use [Matematica.Dentro](../CG_Biblioteca/Matematica.cs))  
-- ```Ponto.cs``` ([Ponto.cs](./CG_N2_Exemplo/Ponto.cs)): para criar o ponto do centro do círculo menor  
-- ```Retangulo.cs``` ([Retangulo.cs](./CG_N2_Exemplo/Retangulo.cs)): para criar a representação visual da BBox interna  
+- ```Ponto.cs``` ([Ponto.cs](../CG_N2_Exemplo/Ponto.cs)): para criar o ponto do centro do círculo menor  
+- ```Retangulo.cs``` ([Retangulo.cs](../CG_N2_Exemplo/Retangulo.cs)): para criar a representação visual da BBox interna  
 
 O resultado final deve ser o mais parecido com o código: [CG_N2_5_win10-x64.zip](./CG_N2_5_win10-x64.zip "CG_N2_5_win10-x64.zip")  
 
