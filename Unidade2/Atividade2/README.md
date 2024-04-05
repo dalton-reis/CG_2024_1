@@ -87,7 +87,7 @@ Para controlar o movimento do centro do círculo menor deve ser usado (neste ord
 
 Aqui só use as classes:
 
-- ```Circulo.cs```: para criar os círculos maior e menor (use [Matematica.Dentro](../CG_Biblioteca/Matematica.cs))  
+- ```Circulo.cs```: para criar os círculos maior e menor (use [Matematica.Dentro](../../CG_Biblioteca/Matematica.cs))  
 - ```Ponto.cs``` ([Ponto.cs](../CG_N2_Exemplo/Ponto.cs)): para criar o ponto do centro do círculo menor  
 - ```Retangulo.cs``` ([Retangulo.cs](../CG_N2_Exemplo/Retangulo.cs)): para criar a representação visual da BBox interna  
 
@@ -96,7 +96,7 @@ O resultado final deve ser o mais parecido com o código: [CG_N2_5_win10-x64.zip
 ## Atenção
 
 A avaliação da atividade envolve o desenvolvimento das questões acima apresentadas, mas o mais importante é o integrante da equipe demonstrar conhecimento além do código desenvolvido, também os conceitos apresentados em aula relacionados com a atividade em si.  
-Cuide com o prazo de entrega observando o [cronograma](../cronograma.md).
+Cuide com o prazo de entrega observando o [cronograma](../../cronograma.md).
 
 ## Gabarito
 
