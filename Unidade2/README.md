@@ -105,7 +105,7 @@ O material utilizado nesta disciplina é baseado nessas Referências Bibliográf
 
 ### Links C\#
 
-- [<https://code.visualstudio.com/docs/languages/csharp>](https://code.visualstudio.com/docs/languages/csharp "Uso do CSharp no VSCode")  
+<https://github.com/dalton-reis/projetoEnsino/tree/main/_._/CSharp>  
 
 ## Rabiscos
 
