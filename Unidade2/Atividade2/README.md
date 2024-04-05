@@ -1,11 +1,12 @@
 [CG_Biblioteca]:            ../CG_Biblioteca/              "CG_Biblioteca"  
 [CG_Biblioteca_Matematica]: ../CG_Biblioteca/Matematica.cs "CG_Biblioteca_Matematica"  
+[CG_N2_Exemplo]:            ../CG_N2_Exemplo/              "CG_N2_Exemplo"  
 
 # Unidade 2: OpenGL (OpenTK) - atividade  
 
 Lembretes:
 
-- cada questão deste trabalho deve ser separada em novas pastas e projetos executados separadamente. Obrigatoriamente devem usar como base o projeto de exemplo **[CG_N2_Exemplo](../CG_N2_Exemplo/)**. Lembrem que este projeto também usa o projeto [CG_Biblioteca] disponível na pasta raiz do GitHub da equipe.
+- cada questão deste trabalho deve ser separada em novas pastas e projetos executados separadamente. Obrigatoriamente devem usar como base o projeto de exemplo **[CG_N2_Exemplo]**. Lembrem que este projeto também usa o projeto [CG_Biblioteca] disponível na pasta raiz do GitHub da equipe.
 - usem as sub-pasta da Unidade2 do GitHub da sua equipe para desenvolver/entregar o seu código. No caso:
   - [atividade 1](#1-círculo-no-centro-do-sru) na pasta **CG_N2_1**  
   - [atividade 2](#2-primitivas-geométricas) na pasta **CG_N2_2**  
