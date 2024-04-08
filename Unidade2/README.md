@@ -94,18 +94,11 @@ O material utilizado nesta disciplina é baseado nessas Referências Bibliográf
 
 ### Links IDE VSCode
 
-- [Lista Geral](https://code.visualstudio.com/docs/getstarted/introvideos)
-- [Começando](https://code.visualstudio.com/docs/introvideos/basics)
-- [Edição de Código](https://code.visualstudio.com/docs/introvideos/codeediting)
-- [Personalizar](https://code.visualstudio.com/docs/introvideos/configure)
-- [Extensões](https://code.visualstudio.com/docs/introvideos/extend)
-- [Depurando](https://code.visualstudio.com/docs/introvideos/debugging)
-- [Controle de Versão](https://code.visualstudio.com/docs/introvideos/versioncontrol)
-- [Customizar](https://code.visualstudio.com/docs/introvideos/customize)
+<https://github.com/LDTTFURB/site/tree/main/projetoEnsino/_._/VSCode>  
 
 ### Links C\#
 
-- [<https://code.visualstudio.com/docs/languages/csharp>](https://code.visualstudio.com/docs/languages/csharp "Uso do CSharp no VSCode")  
+<https://github.com/LDTTFURB/site/tree/main/projetoEnsino/_._/CSharp>  
 
 ## Rabiscos
 

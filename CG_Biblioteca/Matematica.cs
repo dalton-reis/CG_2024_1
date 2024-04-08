@@ -29,9 +29,9 @@ namespace CG_Biblioteca
 
     public static bool Dentro(BBox bBox, Ponto4D pto)
     {
-      if ((pto.X >= bBox.obterMenorX && pto.X <= bBox.obterMaiorX) &&
-          (pto.Y >= bBox.obterMenorY && pto.Y <= bBox.obterMaiorY) &&
-          (pto.Z >= bBox.obterMenorZ && pto.Z <= bBox.obterMaiorZ))
+      if ((pto.X >= bBox.ObterMenorX && pto.X <= bBox.ObterMaiorX) &&
+          (pto.Y >= bBox.ObterMenorY && pto.Y <= bBox.ObterMaiorY) &&
+          (pto.Z >= bBox.ObterMenorZ && pto.Z <= bBox.ObterMaiorZ))
       {
         return true;
       }

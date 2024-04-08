@@ -120,7 +120,7 @@ namespace CG_Biblioteca
     //TODO: tentar usar Const
     public Ponto4D MultiplicarPonto(Ponto4D pto)
     {
-      Ponto4D pointResult = new Ponto4D(
+      Ponto4D pointResult = new(
           matriz[0] * pto.X + matriz[4] * pto.Y + matriz[8] * pto.Z + matriz[12] * pto.W,
           matriz[1] * pto.X + matriz[5] * pto.Y + matriz[9] * pto.Z + matriz[13] * pto.W,
           matriz[2] * pto.X + matriz[6] * pto.Y + matriz[10] * pto.Z + matriz[14] * pto.W,

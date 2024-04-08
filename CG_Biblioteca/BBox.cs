@@ -11,12 +11,12 @@ namespace CG_Biblioteca
   public class BBox
   {
     private double menorX, menorY, menorZ, maiorX, maiorY, maiorZ;
-    private Ponto4D centro = new Ponto4D();
+    private readonly Ponto4D centro = new();
 
     private int _vertexBufferObject_bbox;
     private int _vertexArrayObject_bbox;
 
-    private Shader _shaderAmarela;
+    private readonly Shader _shaderAmarela;
 
     public BBox()
     {
@@ -80,9 +80,9 @@ namespace CG_Biblioteca
     /// Verifica se um ponto está dentro da BBox.
     public bool Dentro(Ponto4D pto)
     {
-      if ((pto.X >= obterMenorX && pto.X <= obterMaiorX) &&
-          (pto.Y >= obterMenorY && pto.Y <= obterMaiorY) &&
-          (pto.Z >= obterMenorZ && pto.Z <= obterMaiorZ))
+      if ((pto.X >= ObterMenorX && pto.X <= ObterMaiorX) &&
+          (pto.Y >= ObterMenorY && pto.Y <= ObterMaiorY) &&
+          (pto.Z >= ObterMenorZ && pto.Z <= ObterMaiorZ))
       {
         return true;
       }
@@ -90,25 +90,25 @@ namespace CG_Biblioteca
     }
 
     /// Obter menor valor X da BBox.
-    public double obterMenorX => menorX;
+    public double ObterMenorX => menorX;
 
     /// Obter menor valor Y da BBox.
-    public double obterMenorY => menorY;
+    public double ObterMenorY => menorY;
 
     /// Obter menor valor Z da BBox.
-    public double obterMenorZ => menorZ;
+    public double ObterMenorZ => menorZ;
 
     /// Obter maior valor X da BBox.
-    public double obterMaiorX => maiorX;
+    public double ObterMaiorX => maiorX;
 
     /// Obter maior valor Y da BBox.
-    public double obterMaiorY => maiorY;
+    public double ObterMaiorY => maiorY;
 
     /// Obter maior valor Z da BBox.
-    public double obterMaiorZ => maiorZ;
+    public double ObterMaiorZ => maiorZ;
 
     /// Obter ponto do centro da BBox.
-    public Ponto4D obterCentro => centro;
+    public Ponto4D ObterCentro => centro;
 
 #if CG_Gizmo
     public void Desenhar(Transformacao4D matrizGrafo)
