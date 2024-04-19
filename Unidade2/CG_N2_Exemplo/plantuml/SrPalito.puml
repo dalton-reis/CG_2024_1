@@ -1,6 +1,6 @@
 @startuml
 class SrPalito {
-    + SrPalito(paiRef:Objeto, _rotulo:char)
+    + SrPalito(_paiRef:Objeto, _rotulo:char)
     + Atualizar() : void
     + AtualizarPe(peInc:double) : void
     + AtualizarRaio(raioInc:double) : void
