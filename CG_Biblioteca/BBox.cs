@@ -78,6 +78,7 @@ namespace CG_Biblioteca
     }
 
     /// Verifica se um ponto está dentro da BBox.
+    //FIXME: tem duas rotinas de dentro, aqui e na matematica
     public bool Dentro(Ponto4D pto)
     {
       if ((pto.X >= ObterMenorX && pto.X <= ObterMaiorX) &&

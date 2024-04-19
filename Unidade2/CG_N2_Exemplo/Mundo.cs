@@ -138,36 +138,24 @@ namespace gcgcg
             {
                 Close();
             }
-            else
+            if (input.IsKeyPressed(Keys.Right))
             {
-                if (input.IsKeyPressed(Keys.Right))
-                {
-                    objetoSelecionado.PontosAlterar(new Ponto4D(objetoSelecionado.PontosId(0).X + 0.005, objetoSelecionado.PontosId(0).Y, 0), 0);
-                    objetoSelecionado.ObjetoAtualizar();
-                }
-                else
-                {
-                    if (input.IsKeyPressed(Keys.P))
-                    {
-                        Console.WriteLine(objetoSelecionado);
-                    }
-                    else
-                    {
-                        if (input.IsKeyPressed(Keys.Space))
-                        {
-                            if (objetoSelecionado == null)
-                                objetoSelecionado = mundo;
-                            objetoSelecionado = mundo.GrafocenaBuscaProximo(objetoSelecionado);
-                        }
-                        else
-                        {
-                            if (input.IsKeyPressed(Keys.C))
-                            {
-                                objetoSelecionado.shaderObjeto = new Shader("Shaders/shader.vert", "Shaders/shaderCiano.frag");
-                            }
-                        }
-                    }
-                }
+                objetoSelecionado.PontosAlterar(new Ponto4D(objetoSelecionado.PontosId(0).X + 0.005, objetoSelecionado.PontosId(0).Y, 0), 0);
+                objetoSelecionado.ObjetoAtualizar();
+            }
+            if (input.IsKeyPressed(Keys.P))
+            {
+                Console.WriteLine(objetoSelecionado);
+            }
+            if (input.IsKeyPressed(Keys.Space))
+            {
+                if (objetoSelecionado == null)
+                    objetoSelecionado = mundo;
+                objetoSelecionado = mundo.GrafocenaBuscaProximo(objetoSelecionado);
+            }
+            if (input.IsKeyPressed(Keys.C))
+            {
+                objetoSelecionado.shaderObjeto = new Shader("Shaders/shader.vert", "Shaders/shaderCiano.frag");
             }
             #endregion
 

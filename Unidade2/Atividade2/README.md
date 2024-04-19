@@ -58,10 +58,10 @@ No caso a interação deve ser:
 
 – para mudar entre o ponto de controle selecionado (em cor vermelha) usem a tecla de “barra de espaço”;  
 – para mover o ponto selecionado (um dos pontos de controle) usar as teclas C (Cima), B (Baixo), E (Esquerda) e D (Direita);  
-– as teclas do sinal de mais (+) e menos (-) podem aumentar e diminui a quantidade de pontos calculados na spline;  
-– ao pressionar a tecla R os pontos de controle devem voltar aos valores iniciais;  
+– as teclas do sinal de mais (+) e vírgula (,) podem aumentar e diminui a quantidade de pontos calculados na spline;  
 – a spline deve ser desenha usando linhas de cor amarela;  
 – o poliedro de controle deve ser desenhado usando uma linha de cor ciano.  
+<!-- – ao pressionar a tecla R os pontos de controle devem voltar aos valores iniciais;   -->
 
 **ATENÇÃO**: não é permitido usar o comando spline do OpenGL, sendo só permitido usar UMA das formas de splines “demonstradas em aula”. Ao mover um dos pontos de controle, o poliedro e a spline deve se ajustar aos novos valores deste ponto.  
 Veja o exemplo no vídeo a baixo.  
@@ -76,7 +76,7 @@ O resultado final deve ser o mais parecido com o código: [CG_N2_4_win10-x64.zip
 
 ## 5. BBox dos círculos
 
-E por fim, esta aplicação tem o objetivo de fazer um ```joystick virtual```. Basicamente deve-se desenhar dois círculos (um menor e outro maior) e poder mover o círculo menor, mas sem deixar ele (o centro do círculo menor e o círculo menor) sair dos limites do círculo maior. Para mover o centro do círculo menor usar as teclas C (Cima), B (Baixo), E (Esquerda) e D (Direita).  
+E por fim, esta aplicação tem o objetivo de fazer um ```joystick virtual```. Basicamente deve-se desenhar dois círculos (um menor e outro maior) e poder mover o círculo menor, mas sem deixar ele (o centro do círculo menor) sair dos limites do círculo maior. Para mover o centro do círculo menor usar as teclas C (Cima), B (Baixo), E (Esquerda) e D (Direita).  
 
 Para controlar o movimento do centro do círculo menor deve ser usado (neste ordem):  
 
@@ -87,7 +87,7 @@ Para controlar o movimento do centro do círculo menor deve ser usado (neste ord
 
 Aqui só use as classes:
 
-- ```Circulo.cs```: para criar os círculos maior e menor (use [Matematica.Dentro](../../CG_Biblioteca/Matematica.cs))  
+- ```Circulo.cs```: para criar os círculos maior e menor (lembre, a [atividade 1](#1-círculo-no-centro-do-sru) já criou uma classe círculo)  
 - ```Ponto.cs``` ([Ponto.cs](../CG_N2_Exemplo/Ponto.cs)): para criar o ponto do centro do círculo menor  
 - ```Retangulo.cs``` ([Retangulo.cs](../CG_N2_Exemplo/Retangulo.cs)): para criar a representação visual da BBox interna  
 
