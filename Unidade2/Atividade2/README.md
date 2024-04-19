@@ -25,6 +25,10 @@ Observações:
 - utilize as funções sin(ang) e cos(ang) para calcular os pontos do círculo da Classe [CG_Biblioteca_Matematica] fornecida;  
 - não é permitido usar o comando circle do OpenGL e nem outra implementação que não usem as funções da classe [CG_Biblioteca_Matematica].  
 
+Especificação:  
+
+![../_._CG_N2_1/svg/plantuml/include.svg](../_._CG_N2_1/svg/plantuml/include.svg)  
+
 ## 2. Primitivas geométricas  
 
 Nesta aplicação a ideia é explorar a utilização das “primitivas geométricas” de forma que o resultado final seja o mais parecido com o código: [CG_N2_2_win-x64.zip](./CG_N2_2_win-x64.zip "CG_N2_2_win-x64.zip"). Aqui se pode usar a classe [Retangulo.cs](../CG_N2_Exemplo/Retangulo.cs).  
@@ -33,6 +37,10 @@ No caso a interação deve ser:
 
 - para alternar entre as “primitivas geométricas” usem a tecla de “barra de espaço”;  
 - as “primitivas geométricas” que devem ser utilizadas são: Points, Lines, LineLoop, LineStrip, Triangles, TriangleStrip e TriangleFan.  
+
+Especificação:  
+
+![../_._CG_N2_2/svg/plantuml/include.svg](../_._CG_N2_2/svg/plantuml/include.svg)  
 
 ## 3. Sr. Palito, dando seus primeiros passos  
 
@@ -49,6 +57,10 @@ Ao Sr. Palito "nasce" está com os seus "pés" na origem, e sua "cabeça" na pos
 Ah ... o Sr. Palito não se parece muito com o "desenho" do [segmento de reta](../CG_N2_Exemplo/SegReta.cs) que representa um raio de uma [circunferência](#1-círculo-no-centro-do-sru) !!  
 
 Se quiser como é o Sr. Palito "engatinhando" nos seus primeiros dias de "vida" olhem o código: [CG_N2_3_win-x64.zip](./CG_N2_3_win-x64.zip "CG_N2_3_win-x64.zip").
+
+Especificação:  
+
+![../_._CG_N2_3/svg/plantuml/include.svg](../_._CG_N2_3/svg/plantuml/include.svg)  
 
 ## 4. Spline  
 
@@ -74,6 +86,10 @@ Usem as classes:
 
 O resultado final deve ser o mais parecido com o código: [CG_N2_4_win-x64.zip](./CG_N2_4_win-x64.zip "CG_N2_4_win-x64.zip")  
 
+Especificação:  
+
+![../_._CG_N2_4/svg/plantuml/include.svg](../_._CG_N2_4/svg/plantuml/include.svg)  
+
 ## 5. BBox dos círculos
 
 E por fim, esta aplicação tem o objetivo de fazer um ```joystick virtual```. Basicamente deve-se desenhar dois círculos (um menor e outro maior) e poder mover o círculo menor, mas sem deixar ele (o centro do círculo menor) sair dos limites do círculo maior. Para mover o centro do círculo menor usar as teclas C (Cima), B (Baixo), E (Esquerda) e D (Direita).  
@@ -92,6 +108,10 @@ Aqui só use as classes:
 - ```Retangulo.cs``` ([Retangulo.cs](../CG_N2_Exemplo/Retangulo.cs)): para criar a representação visual da BBox interna  
 
 O resultado final deve ser o mais parecido com o código: [CG_N2_5_win-x64.zip](./CG_N2_5_win-x64.zip "CG_N2_5_win-x64.zip")  
+
+Especificação:  
+
+![../_._CG_N2_5/svg/plantuml/include.svg](../_._CG_N2_5/svg/plantuml/include.svg)  
 
 ## Atenção
 
