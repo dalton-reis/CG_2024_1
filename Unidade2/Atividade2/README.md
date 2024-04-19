@@ -27,7 +27,7 @@ Observações:
 
 Especificação:  
 
-![../_._CG_N2_1/svg/plantuml/include.svg](../_._CG_N2_1/svg/plantuml/include.svg)  
+![../_._CG_N2_1/svg/plantuml/include.svg](CG_N2_1.svg)  
 
 ## 2. Primitivas geométricas  
 
@@ -40,7 +40,7 @@ No caso a interação deve ser:
 
 Especificação:  
 
-![../_._CG_N2_2/svg/plantuml/include.svg](../_._CG_N2_2/svg/plantuml/include.svg)  
+![../_._CG_N2_2/svg/plantuml/include.svg](CG_N2_2.svg)  
 
 ## 3. Sr. Palito, dando seus primeiros passos  
 
@@ -60,7 +60,7 @@ Se quiser como é o Sr. Palito "engatinhando" nos seus primeiros dias de "vida" 
 
 Especificação:  
 
-![../_._CG_N2_3/svg/plantuml/include.svg](../_._CG_N2_3/svg/plantuml/include.svg)  
+![../_._CG_N2_3/svg/plantuml/include.svg](CG_N2_3.svg)  
 
 ## 4. Spline  
 
@@ -88,7 +88,7 @@ O resultado final deve ser o mais parecido com o código: [CG_N2_4_win-x64.zip](
 
 Especificação:  
 
-![../_._CG_N2_4/svg/plantuml/include.svg](../_._CG_N2_4/svg/plantuml/include.svg)  
+![../_._CG_N2_4/svg/plantuml/include.svg](CG_N2_4.svg)  
 
 ## 5. BBox dos círculos
 
@@ -111,7 +111,7 @@ O resultado final deve ser o mais parecido com o código: [CG_N2_5_win-x64.zip](
 
 Especificação:  
 
-![../_._CG_N2_5/svg/plantuml/include.svg](../_._CG_N2_5/svg/plantuml/include.svg)  
+![../_._CG_N2_5/svg/plantuml/include.svg](CG_N2_5.svg)  
 
 ## Atenção
 
