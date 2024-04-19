@@ -14,29 +14,29 @@ namespace gcgcg
     // Objeto
     private readonly char rotulo;
     protected Objeto paiRef;
-    private List<Objeto> objetosLista = new List<Objeto>();
+    private readonly List<Objeto> objetosLista = new List<Objeto>();
     private PrimitiveType primitivaTipo = PrimitiveType.LineLoop;
     public PrimitiveType PrimitivaTipo { get => primitivaTipo; set => primitivaTipo = value; }
     private float primitivaTamanho = 1;
     public float PrimitivaTamanho { get => primitivaTamanho; set => primitivaTamanho = value; }
-    private Shader _shaderObjeto = new Shader("Shaders/shader.vert", "Shaders/shaderBranca.frag");
-    public Shader shaderObjeto { set => _shaderObjeto = value; }
+    private Shader _shaderObjeto = new("Shaders/shader.vert", "Shaders/shaderBranca.frag");
+    public Shader ShaderObjeto { set => _shaderObjeto = value; }
 
     // Vértices do objeto
     //TODO: o objeto mundo deveria ter estes atributos abaixo?
-    protected List<Ponto4D> pontosLista = new List<Ponto4D>();
+    protected List<Ponto4D> pontosLista = [];
     private int _vertexBufferObject;
     private int _vertexArrayObject;
 
     // BBox do objeto
-    private BBox bBox = new BBox();
+    private readonly BBox bBox = new();
     public BBox Bbox()  //TODO: readonly
     {
       return bBox;
     }
 
     // Transformações do objeto
-    private Transformacao4D matriz = new Transformacao4D();
+    private readonly Transformacao4D matriz = new Transformacao4D();
 
     public Objeto(Objeto _paiRef, ref char _rotulo, Objeto objetoFilho = null)
     {
@@ -161,9 +161,9 @@ namespace gcgcg
       }
     }
 
-    public void GrafocenaImprimir(String idt)
+    public void GrafocenaImprimir(string idt)
     {
-      System.Console.WriteLine(idt + rotulo);
+      Console.WriteLine(idt + rotulo);
       foreach (var objeto in objetosLista)
       {
         objeto.GrafocenaImprimir(idt + "  ");
@@ -171,8 +171,6 @@ namespace gcgcg
     }
 
     #endregion
-
-
 
     public void OnUnload()
     {
@@ -205,7 +203,7 @@ namespace gcgcg
         string.Format("{0,10}", pontosLista[i].W) + " ]" + "\n";
       }
       retorno += bBox.ToString();
-      return (retorno);
+      return retorno;
     }
 #endif
 

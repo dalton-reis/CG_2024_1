@@ -4,7 +4,7 @@
 
 using System.Collections.Generic;
 using OpenTK.Graphics.OpenGL4;
-using OpenTK.Mathematics;
+// using OpenTK.Mathematics;
 
 namespace CG_Biblioteca
 {
@@ -34,20 +34,20 @@ namespace CG_Biblioteca
       Ponto4D pto = pontosLista[0];
       pto = matriz.MultiplicarPonto(pto);
 
-      this.menorX = pto.X; this.menorY = pto.Y; this.menorZ = pto.Z;
-      this.maiorX = pto.X; this.maiorY = pto.Y; this.maiorZ = pto.Z;
+      menorX = pto.X; menorY = pto.Y; menorZ = pto.Z;
+      maiorX = pto.X; maiorY = pto.Y; maiorZ = pto.Z;
 
       for (var i = 1; i < pontosLista.Count; i++)
       {
         pto = pontosLista[i];
         pto = matriz.MultiplicarPonto(pto);
-        Atualizar(matriz, pto);
+        Atualizar(pto);
       }
 
       ProcessarCentro();
     }
 
-    private void Atualizar(Transformacao4D matriz, Ponto4D pto)
+    private void Atualizar(Ponto4D pto)
     {
       if (pto.X < menorX)
         menorX = pto.X;
@@ -81,9 +81,9 @@ namespace CG_Biblioteca
     //FIXME: tem duas rotinas de dentro, aqui e na matematica
     public bool Dentro(Ponto4D pto)
     {
-      if ((pto.X >= ObterMenorX && pto.X <= ObterMaiorX) &&
-          (pto.Y >= ObterMenorY && pto.Y <= ObterMaiorY) &&
-          (pto.Z >= ObterMenorZ && pto.Z <= ObterMaiorZ))
+      if (pto.X >= ObterMenorX && pto.X <= ObterMaiorX &&
+          pto.Y >= ObterMenorY && pto.Y <= ObterMaiorY &&
+          pto.Z >= ObterMenorZ && pto.Z <= ObterMaiorZ)
       {
         return true;
       }

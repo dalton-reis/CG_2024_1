@@ -27,9 +27,9 @@ namespace CG_Biblioteca
     }
     public Ponto4D(Ponto4D pto)
     {
-      this.x = pto.x;
-      this.y = pto.y;
-      this.z = pto.z;
+      x = pto.x;
+      y = pto.y;
+      z = pto.z;
     }
     // Operator overloaded
     /// <summary>
@@ -82,7 +82,7 @@ namespace CG_Biblioteca
       string retorno;
       retorno = "__ Ponto4D: " + "\n";
       retorno += "P" + "[" + string.Format("{0,10}", x) + "," + string.Format("{0,10}", y) + "," + string.Format("{0,10}", z) + "," + string.Format("{0,10}", w) + "]" + "\n";
-      return (retorno);
+      return retorno;
     }
 #endif
 

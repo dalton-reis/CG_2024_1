@@ -24,7 +24,7 @@
       "problemMatcher": "$msCompile"
     },
     {
-      "label": "publishRelease_win10-x64",
+      "label": "publishRelease_win-x64",
       "command": "dotnet",
       "type": "process",
       "args": [
@@ -32,7 +32,7 @@
         "-c",
         "release",
         "-r",
-        "win10-x64",
+        "win-x64",
         "${workspaceFolder}/CG_N2_Exemplo.csproj",
         "/property:GenerateFullPaths=true"
       ],

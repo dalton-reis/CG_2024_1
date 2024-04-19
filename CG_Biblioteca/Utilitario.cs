@@ -9,7 +9,7 @@ namespace CG_Biblioteca
       return Convert.ToChar(atual + 1);
     }
 
-    public static char TeclaUpperConsole(String msg, ref bool Control, ref bool Shift)
+    public static char TeclaUpperConsole(string msg, ref bool Control, ref bool Shift)
     {
       Console.WriteLine(msg);
       ConsoleKeyInfo input = Console.ReadKey(true);
@@ -25,7 +25,7 @@ namespace CG_Biblioteca
           Shift = true;
         }
       }
-      return Char.ToUpper(input.Key.ToString()[0]);
+      return char.ToUpper(input.Key.ToString()[0]);
     }
 
     // Coordenada de Dispositivo Normalizado (Normalized Device Coordinate - NDC)

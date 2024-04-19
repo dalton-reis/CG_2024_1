@@ -7,7 +7,8 @@ namespace gcgcg
 {
   internal class SegReta : Objeto
   {
-    public SegReta(Objeto _paiRef, ref char _rotulo) : this(_paiRef, ref _rotulo, new Ponto4D(-0.5,-0.5), new Ponto4D(0.5,0.5)) {
+    public SegReta(Objeto _paiRef, ref char _rotulo) : this(_paiRef, ref _rotulo, new Ponto4D(-0.5, -0.5), new Ponto4D(0.5, 0.5))
+    {
 
     }
 
@@ -33,7 +34,7 @@ namespace gcgcg
       string retorno;
       retorno = "__ Objeto SegReta _ Tipo: " + PrimitivaTipo + " _ Tamanho: " + PrimitivaTamanho + "\n";
       retorno += base.ImprimeToString();
-      return (retorno);
+      return retorno;
     }
 #endif
 

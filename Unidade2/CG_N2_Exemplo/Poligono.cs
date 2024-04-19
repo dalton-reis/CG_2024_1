@@ -28,7 +28,7 @@ namespace gcgcg
       string retorno;
       retorno = "__ Objeto Poligono _ Tipo: " + PrimitivaTipo + " _ Tamanho: " + PrimitivaTamanho + "\n";
       retorno += base.ImprimeToString();
-      return (retorno);
+      return retorno;
     }
 #endif
 
