@@ -118,7 +118,7 @@ namespace gcgcg
             #endregion
 
             #region Objeto: Spline
-            objetoSelecionado = new Spline(mundo, ref rotuloAtual);
+            objetoSelecionado = new SplineBezier(mundo, ref rotuloAtual);
             #endregion
 #endif
 
