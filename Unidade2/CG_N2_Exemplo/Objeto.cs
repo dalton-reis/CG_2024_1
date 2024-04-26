@@ -24,7 +24,9 @@ namespace gcgcg
 
     // Vértices do objeto
     //TODO: o objeto mundo deveria ter estes atributos abaixo?
+    //TODO: pontosLista poderia ser private?
     protected List<Ponto4D> pontosLista = [];
+    public int PontosListaTamanho { get => pontosLista.Count; }
     private int _vertexBufferObject;
     private int _vertexArrayObject;
 
@@ -124,6 +126,12 @@ namespace gcgcg
     public void PontosAlterar(Ponto4D pto, int posicao)
     {
       pontosLista[posicao] = pto;
+      ObjetoAtualizar();
+    }
+
+    public void PontosLimpar()
+    {
+      pontosLista.Clear();
       ObjetoAtualizar();
     }
 

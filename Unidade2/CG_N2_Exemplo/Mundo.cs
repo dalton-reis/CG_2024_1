@@ -117,8 +117,12 @@ namespace gcgcg
             objetoSelecionado = new SrPalito(mundo, ref rotuloAtual);
             #endregion
 
-            #region Objeto: Spline
+            #region Objeto: SplineBezier
             objetoSelecionado = new SplineBezier(mundo, ref rotuloAtual);
+            #endregion
+
+            #region Objeto: SplineInter
+            objetoSelecionado = new SplineInter(mundo, ref rotuloAtual);
             #endregion
 #endif
 
@@ -147,10 +151,17 @@ namespace gcgcg
             {
                 Close();
             }
+            if (input.IsKeyPressed(Keys.R))
+            {
+                objetoSelecionado.PontosLimpar();
+            }
             if (input.IsKeyPressed(Keys.Right))
             {
+                if (objetoSelecionado.PontosListaTamanho > 0)
+                {
                 objetoSelecionado.PontosAlterar(new Ponto4D(objetoSelecionado.PontosId(0).X + 0.005, objetoSelecionado.PontosId(0).Y, 0), 0);
-                objetoSelecionado.ObjetoAtualizar();
+                objetoSelecionado.ObjetoAtualizar();                    
+                }
             }
             if (input.IsKeyPressed(Keys.P))
             {
