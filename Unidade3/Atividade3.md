@@ -29,12 +29,12 @@ Observação: as funções do OpenGL/OpenTK "glTranslate", "glRotate" e "glScale
 
 \[Peso 0,5] Especifique as classes, métodos e atributos usando Diagrama de Classes.  
 
-## 2. Estrutura de dados: polígono
+## 2. Estrutura de dados: polígono - adicionar
 
 \[Peso 1,0] Utilize o mouse para clicar na tela com botão direito e poder desenhar um novo polígono.  
 Quando pressionar a tecla Enter finaliza o desenho do novo polígono.  
 
-## 3. Estrutura de dados: polígono
+## 3. Estrutura de dados: polígono - remover
 
 \[Peso 0,5] Utilize a tecla D para remover o polígono selecionado.  
 
