@@ -46,5 +46,28 @@ namespace CG_Biblioteca
       Console.WriteLine(" [Barra de Espaço] imprimir Grafo de Cena. "); //TODO: quais teclas irei usar.
     }
 
+    public static void Diretivas()
+    {
+      Console.WriteLine("_ Diretivas de Compilação: _______ \n");
+#if CG_DEBUG
+      Console.WriteLine("Debug - versão do código para depurar");
+#endif      
+#if CG_Gizmo
+      Console.WriteLine("CG_Gizmo - objetos gráficos para depurar");
+#endif
+#if CG_OpenGL
+      Console.WriteLine("CG_OpenGL - renderizado OpenGL");
+#endif
+#if CG_OpenTK
+      Console.WriteLine("CG_OpenGL - renderizado OpenTK");
+#endif
+#if CG_DirectX
+      Console.WriteLine("CG_DirectX - renderizado DirectX");
+#endif
+#if CG_Privado
+      Console.WriteLine("CG_Privado - código do professor");
+#endif
+      Console.WriteLine("__________________________________ \n");
+    }
   }
 }

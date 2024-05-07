@@ -1,8 +1,11 @@
-﻿//TODO: testar se estes DEFINEs continuam funcionado
-#define CG_Gizmo  // debugar gráfico.
-#define CG_OpenGL // render OpenGL.
-// #define CG_DirectX // render DirectX.
-// #define CG_Privado // código do professor.
+﻿#define CG_DEBUG
+#define CG_Gizmo      
+#define CG_OpenGL      
+// #define CG_OpenTK
+// #define CG_DirectX      
+// #define CG_Privado  
+
+//FIXME: as diretivas parecem não funcionar direito. Aqui neste projeto sim, mas quando estão na CG_Biblioteca não funciona.
 
 using CG_Biblioteca;
 using OpenTK.Graphics.OpenGL4;
@@ -46,7 +49,11 @@ namespace gcgcg
     protected override void OnLoad()
     {
       base.OnLoad();
+      
+      Utilitario.Diretivas();
+#if CG_DEBUG      
       Console.WriteLine("Tamanho interno da janela de desenho: " + ClientSize.X + "x" + ClientSize.Y);
+#endif
       GL.ClearColor(0.0f, 0.0f, 0.0f, 1.0f);
       #region Eixos: SRU  
       _vertexBufferObject_sruEixos = GL.GenBuffer();
@@ -208,6 +215,9 @@ namespace gcgcg
     {
       base.OnResize(e);
 
+#if CG_DEBUG      
+      Console.WriteLine("Tamanho interno da janela de desenho: " + ClientSize.X + "x" + ClientSize.Y);
+#endif
       GL.Viewport(0, 0, Size.X, Size.Y);
     }
 
