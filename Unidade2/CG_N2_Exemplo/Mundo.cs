@@ -146,17 +146,17 @@ namespace gcgcg
       base.OnUpdateFrame(e);
 
       #region Teclado
-      var input = KeyboardState;
-      if (input.IsKeyPressed(Keys.Escape))
+      var estadoTeclado = KeyboardState;
+      if (estadoTeclado.IsKeyPressed(Keys.Escape))
       {
         Close();
       }
-      if (input.IsKeyPressed(Keys.R))
+      if (estadoTeclado.IsKeyPressed(Keys.R))
       {
         //FIXME: Spline limpa os pontos da Spline, mas não limpa pontos e poliedro de controle 
         objetoSelecionado.PontosLimpar();
       }
-      if (input.IsKeyPressed(Keys.Right))
+      if (estadoTeclado.IsKeyPressed(Keys.Right))
       {
         if (objetoSelecionado.PontosListaTamanho > 0)
         {
@@ -164,16 +164,16 @@ namespace gcgcg
           objetoSelecionado.ObjetoAtualizar();
         }
       }
-      if (input.IsKeyPressed(Keys.P))
+      if (estadoTeclado.IsKeyPressed(Keys.P))
       {
         Console.WriteLine(objetoSelecionado);
       }
-      if (input.IsKeyPressed(Keys.Space))
+      if (estadoTeclado.IsKeyPressed(Keys.Space))
       {
         objetoSelecionado ??= mundo;
         objetoSelecionado = mundo.GrafocenaBuscaProximo(objetoSelecionado);
       }
-      if (input.IsKeyPressed(Keys.C))
+      if (estadoTeclado.IsKeyPressed(Keys.C))
       {
         objetoSelecionado.ShaderObjeto = new Shader("Shaders/shader.vert", "Shaders/shaderCiano.frag");
       }
@@ -185,7 +185,7 @@ namespace gcgcg
       Ponto4D mousePonto = new(MousePosition.X, MousePosition.Y);
       Ponto4D sruPonto = Utilitario.NDC_TelaSRU(janelaLargura, janelaAltura, mousePonto);
 
-      if (input.IsKeyDown(Keys.LeftShift))
+      if (estadoTeclado.IsKeyDown(Keys.LeftShift))
       {
         if (mouseMovtoPrimeiro)
         {
@@ -202,7 +202,7 @@ namespace gcgcg
           objetoSelecionado.ObjetoAtualizar();
         }
       }
-      if (input.IsKeyDown(Keys.LeftShift))
+      if (estadoTeclado.IsKeyDown(Keys.LeftShift))
       {
         objetoSelecionado.PontosAlterar(sruPonto, 0);
         objetoSelecionado.ObjetoAtualizar();

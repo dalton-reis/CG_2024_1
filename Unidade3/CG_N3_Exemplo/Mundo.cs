@@ -25,9 +25,9 @@ namespace gcgcg
 
     private readonly float[] _sruEixos =
     {
-      -0.5f,  0.0f,  0.0f, /* X- */      0.5f,  0.0f,  0.0f, /* X+ */
-       0.0f, -0.5f,  0.0f, /* Y- */      0.0f,  0.5f,  0.0f, /* Y+ */
-       0.0f,  0.0f, -0.5f, /* Z- */      0.0f,  0.0f,  0.5f  /* Z+ */
+       0.0f,  0.0f,  0.0f, /* X- */      0.5f,  0.0f,  0.0f, /* X+ */
+       0.0f,  0.0f,  0.0f, /* Y- */      0.0f,  0.5f,  0.0f, /* Y+ */
+       0.0f,  0.0f,  0.0f, /* Z- */      0.0f,  0.0f,  0.5f  /* Z+ */
     };
 
     private int _vertexBufferObject_sruEixos;
@@ -90,13 +90,13 @@ namespace gcgcg
       pontosPoligonoBandeira.Add(new Ponto4D(0.25, 0.75));  // E = (0.25, 0.75)
       objetoSelecionado = new Poligono(mundo, ref rotuloNovo, pontosPoligonoBandeira);
       #endregion
-      // #region declara um objeto filho ao polígono
-      // List<Ponto4D> pontosPoligonoTriangulo = new List<Ponto4D>();
-      // pontosPoligonoTriangulo.Add(new Ponto4D(0.50, 0.50));
-      // pontosPoligonoTriangulo.Add(new Ponto4D(0.75, 0.75));
-      // pontosPoligonoTriangulo.Add(new Ponto4D(0.25, 0.75));
-      // objetoSelecionado = new Poligono(objetoSelecionado, ref rotuloNovo, pontosPoligonoTriangulo);
-      // #endregion
+      #region declara um objeto filho ao polígono
+      List<Ponto4D> pontosPoligonoTriangulo = new List<Ponto4D>();
+      pontosPoligonoTriangulo.Add(new Ponto4D(0.50, 0.50)); // F = (0.50, 0.50)
+      pontosPoligonoTriangulo.Add(new Ponto4D(0.75, 0.75)); // G = (0.75, 0.75)
+      pontosPoligonoTriangulo.Add(new Ponto4D(0.25, 0.75)); // H = (0.25, 0.75)
+      objetoSelecionado = new Poligono(objetoSelecionado, ref rotuloNovo, pontosPoligonoTriangulo);
+      #endregion
     }
 
     protected override void OnRenderFrame(FrameEventArgs e)

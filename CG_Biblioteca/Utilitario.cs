@@ -12,20 +12,20 @@ namespace CG_Biblioteca
     public static char TeclaUpperConsole(string msg, ref bool Control, ref bool Shift)
     {
       Console.WriteLine(msg);
-      ConsoleKeyInfo input = Console.ReadKey(true);
+      ConsoleKeyInfo estadoTeclado = Console.ReadKey(true);
 
-      if ((input.Modifiers & ConsoleModifiers.Control) == ConsoleModifiers.Control)
+      if ((estadoTeclado.Modifiers & ConsoleModifiers.Control) == ConsoleModifiers.Control)
       {
         Control = true;
       }
       else
       {
-        if ((input.Modifiers & ConsoleModifiers.Shift) == ConsoleModifiers.Shift)
+        if ((estadoTeclado.Modifiers & ConsoleModifiers.Shift) == ConsoleModifiers.Shift)
         {
           Shift = true;
         }
       }
-      return char.ToUpper(input.Key.ToString()[0]);
+      return char.ToUpper(estadoTeclado.Key.ToString()[0]);
     }
 
     // Coordenada de Dispositivo Normalizado (Normalized Device Coordinate - NDC)
