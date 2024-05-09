@@ -38,7 +38,7 @@ namespace gcgcg
     }
 
     // Transformações do objeto
-    private readonly Transformacao4D matriz = new Transformacao4D();
+    private Transformacao4D matriz = new Transformacao4D();
 
     public Objeto(Objeto _paiRef, ref char _rotulo, Objeto objetoFilho = null)
     {

@@ -16,10 +16,8 @@ namespace gcgcg
                 Flags = ContextFlags.ForwardCompatible,
             };
 
-            using (var window = new Mundo(GameWindowSettings.Default, nativeWindowSettings))
-            {
-                window.Run();
-            }
+            using var window = new Mundo(GameWindowSettings.Default, nativeWindowSettings);
+            window.Run();
         }
     }
 }

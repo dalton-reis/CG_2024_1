@@ -6,7 +6,6 @@ using CG_Biblioteca;
 using OpenTK.Graphics.OpenGL4;
 using System;
 using System.Collections.Generic;
-using OpenTK.Mathematics;
 
 namespace gcgcg
 {
@@ -14,23 +13,22 @@ namespace gcgcg
   {
     // Objeto
     private readonly char rotulo;
-    public char Rotulo { get => rotulo; }
     protected Objeto paiRef;
-    private List<Objeto> objetosLista = new List<Objeto>();
+    private readonly List<Objeto> objetosLista = new List<Objeto>();
     private PrimitiveType primitivaTipo = PrimitiveType.LineLoop;
     public PrimitiveType PrimitivaTipo { get => primitivaTipo; set => primitivaTipo = value; }
     private float primitivaTamanho = 1;
     public float PrimitivaTamanho { get => primitivaTamanho; set => primitivaTamanho = value; }
-    private Shader _shaderObjeto = new Shader("Shaders/shader.vert", "Shaders/shaderBranca.frag");
-    public Shader shaderObjeto { set => _shaderObjeto = value; }
+    private Shader _shaderObjeto = new("Shaders/shader.vert", "Shaders/shaderBranca.frag");
+    public Shader ShaderObjeto { set => _shaderObjeto = value; }
 
-    // Vértices do objeto TODO: o objeto mundo deveria ter estes atributos abaixo?
-    protected List<Ponto4D> pontosLista = new List<Ponto4D>();
+    protected List<Ponto4D> pontosLista = [];
+    public int PontosListaTamanho { get => pontosLista.Count; }
     private int _vertexBufferObject;
     private int _vertexArrayObject;
 
     // BBox do objeto
-    private BBox bBox = new BBox();
+    private readonly BBox bBox = new();
     public BBox Bbox()  //TODO: readonly
     {
       return bBox;
@@ -144,6 +142,12 @@ namespace gcgcg
       ObjetoAtualizar();
     }
 
+    public void PontosLimpar()
+    {
+      pontosLista.Clear();
+      ObjetoAtualizar();
+    }
+
     #endregion
 
     #region Objeto: Grafo de Cena
@@ -178,7 +182,7 @@ namespace gcgcg
       }
     }
 
-    public void GrafocenaImprimir(String idt)
+    public void GrafocenaImprimir(string idt)
     {
       Console.WriteLine(idt + rotulo);
       foreach (var objeto in objetosLista)
@@ -310,7 +314,7 @@ namespace gcgcg
         string.Format("{0,10}", pontosLista[i].W) + " ]" + "\n";
       }
       retorno += bBox.ToString();
-      return (retorno);
+      return retorno;
     }
 #endif
 

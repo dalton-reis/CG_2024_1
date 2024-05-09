@@ -20,15 +20,15 @@ namespace gcgcg
   {
     private static Objeto mundo = null;
 
-    private char rotuloNovo = '?';
+    private char rotuloAtual = '?';
     private Objeto objetoSelecionado = null;
 
     private readonly float[] _sruEixos =
-    {
+    [
        0.0f,  0.0f,  0.0f, /* X- */      0.5f,  0.0f,  0.0f, /* X+ */
        0.0f,  0.0f,  0.0f, /* Y- */      0.0f,  0.5f,  0.0f, /* Y+ */
        0.0f,  0.0f,  0.0f, /* Z- */      0.0f,  0.0f,  0.5f  /* Z+ */
-    };
+    ];
 
     private int _vertexBufferObject_sruEixos;
     private int _vertexArrayObject_sruEixos;
@@ -45,9 +45,9 @@ namespace gcgcg
     private Shader _shaderAmarela;
 
     public Mundo(GameWindowSettings gameWindowSettings, NativeWindowSettings nativeWindowSettings)
-           : base(gameWindowSettings, nativeWindowSettings)
+      : base(gameWindowSettings, nativeWindowSettings)
     {
-      mundo ??= new Objeto(null, ref rotuloNovo); //padrão Singleton
+      mundo ??= new Objeto(null, ref rotuloAtual); //padrão Singleton
     }
 
     protected override void OnLoad()
@@ -88,14 +88,14 @@ namespace gcgcg
       pontosPoligonoBandeira.Add(new Ponto4D(0.75, 0.75));  // C = (0.75, 0.75)
       pontosPoligonoBandeira.Add(new Ponto4D(0.50, 0.50));  // D = (0.50, 0.50)
       pontosPoligonoBandeira.Add(new Ponto4D(0.25, 0.75));  // E = (0.25, 0.75)
-      objetoSelecionado = new Poligono(mundo, ref rotuloNovo, pontosPoligonoBandeira);
+      objetoSelecionado = new Poligono(mundo, ref rotuloAtual, pontosPoligonoBandeira);
       #endregion
       #region declara um objeto filho ao polígono
       List<Ponto4D> pontosPoligonoTriangulo = new List<Ponto4D>();
       pontosPoligonoTriangulo.Add(new Ponto4D(0.50, 0.50)); // F = (0.50, 0.50)
       pontosPoligonoTriangulo.Add(new Ponto4D(0.75, 0.75)); // G = (0.75, 0.75)
       pontosPoligonoTriangulo.Add(new Ponto4D(0.25, 0.75)); // H = (0.25, 0.75)
-      objetoSelecionado = new Poligono(objetoSelecionado, ref rotuloNovo, pontosPoligonoTriangulo);
+      objetoSelecionado = new Poligono(objetoSelecionado, ref rotuloAtual, pontosPoligonoTriangulo);
       #endregion
     }
 

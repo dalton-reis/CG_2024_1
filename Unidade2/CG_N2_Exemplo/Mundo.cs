@@ -26,9 +26,9 @@ namespace gcgcg
 
     private readonly float[] _sruEixos =
     [
-      -0.5f,  0.0f,  0.0f, /* X- */      0.5f,  0.0f,  0.0f, /* X+ */
-       0.0f, -0.5f,  0.0f, /* Y- */      0.0f,  0.5f,  0.0f, /* Y+ */
-       0.0f,  0.0f, -0.5f, /* Z- */      0.0f,  0.0f,  0.5f  /* Z+ */
+       0.0f,  0.0f,  0.0f, /* X- */      0.5f,  0.0f,  0.0f, /* X+ */
+       0.0f,  0.0f,  0.0f, /* Y- */      0.0f,  0.5f,  0.0f, /* Y+ */
+       0.0f,  0.0f,  0.0f, /* Z- */      0.0f,  0.0f,  0.5f  /* Z+ */
     ];
 
     private int _vertexBufferObject_sruEixos;
@@ -46,15 +46,24 @@ namespace gcgcg
     {
       mundo ??= new Objeto(null, ref rotuloAtual); //padrão Singleton
     }
+
     protected override void OnLoad()
     {
       base.OnLoad();
-      
+
       Utilitario.Diretivas();
 #if CG_DEBUG      
       Console.WriteLine("Tamanho interno da janela de desenho: " + ClientSize.X + "x" + ClientSize.Y);
 #endif
+
       GL.ClearColor(0.0f, 0.0f, 0.0f, 1.0f);
+
+      #region Cores
+      _shaderVermelha = new Shader("Shaders/shader.vert", "Shaders/shaderVermelha.frag");
+      _shaderVerde = new Shader("Shaders/shader.vert", "Shaders/shaderVerde.frag");
+      _shaderAzul = new Shader("Shaders/shader.vert", "Shaders/shaderAzul.frag");
+      #endregion
+
       #region Eixos: SRU  
       _vertexBufferObject_sruEixos = GL.GenBuffer();
       GL.BindBuffer(BufferTarget.ArrayBuffer, _vertexBufferObject_sruEixos);
@@ -63,10 +72,8 @@ namespace gcgcg
       GL.BindVertexArray(_vertexArrayObject_sruEixos);
       GL.VertexAttribPointer(0, 3, VertexAttribPointerType.Float, false, 3 * sizeof(float), 0);
       GL.EnableVertexAttribArray(0);
-      _shaderVermelha = new Shader("Shaders/shader.vert", "Shaders/shaderVermelha.frag");
-      _shaderVerde = new Shader("Shaders/shader.vert", "Shaders/shaderVerde.frag");
-      _shaderAzul = new Shader("Shaders/shader.vert", "Shaders/shaderAzul.frag");
       #endregion
+
       #region Objeto: polígono qualquer  
       List<Ponto4D> pontosPoligono =
       [
@@ -135,7 +142,7 @@ namespace gcgcg
       GL.Clear(ClearBufferMask.ColorBufferBit);
 
 #if CG_Gizmo
-      Sru3D();
+      Gizmo_Sru3D();
 #endif
       mundo.Desenhar();
       SwapBuffers();
@@ -207,6 +214,7 @@ namespace gcgcg
         objetoSelecionado.PontosAlterar(sruPonto, 0);
         objetoSelecionado.ObjetoAtualizar();
       }
+
       #endregion
 
     }
@@ -218,7 +226,7 @@ namespace gcgcg
 #if CG_DEBUG      
       Console.WriteLine("Tamanho interno da janela de desenho: " + ClientSize.X + "x" + ClientSize.Y);
 #endif
-      GL.Viewport(0, 0, Size.X, Size.Y);
+      GL.Viewport(0, 0, ClientSize.X, ClientSize.Y);
     }
 
     protected override void OnUnload()
@@ -240,7 +248,7 @@ namespace gcgcg
     }
 
 #if CG_Gizmo
-    private void Sru3D()
+    private void Gizmo_Sru3D()
     {
 #if CG_OpenGL && !CG_DirectX
       GL.BindVertexArray(_vertexArrayObject_sruEixos);
@@ -260,5 +268,6 @@ namespace gcgcg
 #endif
     }
 #endif
+
   }
 }
