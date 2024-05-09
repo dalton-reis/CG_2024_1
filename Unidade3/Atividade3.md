@@ -6,7 +6,7 @@ Lembretes:
 - obrigatoriamente devem usar as classes disponibilizadas na Unidade2 junto com as que foram criadas nesta unidade em [CG_N3_Exemplo](./CG_N3_Exemplo/).  
 - usem a pasta **Unidade3** do GitHub da sua equipe para desenvolver/entregar o seu código.  
 
-Para saber como deve ser o resultado veja o código: [_._CG_N3.zip](./_._CG_N3.zip "_._CG_N3.zip").  
+Para saber como deve ser o resultado veja o código: [CG_N3.zip](./CG_N3.zip "CG_N3.zip").  
 
 ## O que deve ser feito
 

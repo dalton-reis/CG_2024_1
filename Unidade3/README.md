@@ -120,4 +120,4 @@ Já, na Classe Objeto.cs, um exemplo de método para rotação em torno de um po
 
 ## Rabiscos
 
-![Rabiscos]
+![aulaRabiscos](aulaRabiscos.drawio.svg)  
