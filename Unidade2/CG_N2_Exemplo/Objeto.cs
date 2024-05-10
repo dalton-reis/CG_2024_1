@@ -193,8 +193,6 @@ namespace gcgcg
 
       GL.DeleteBuffer(_vertexBufferObject);
       GL.DeleteVertexArray(_vertexArrayObject);
-
-      GL.DeleteProgram(_shaderObjeto.Handle);
     }
 
 #if CG_Debug
