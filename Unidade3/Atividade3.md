@@ -1,3 +1,6 @@
+[CSharp to PlantUML]: https://marketplace.visualstudio.com/items?itemName=pierre3.csharp-to-plantuml  
+[PlantUML]: https://marketplace.visualstudio.com/items?itemName=jebbs.plantuml  
+
 # Unidade 3: Conceitos Básicos - atividade  
 
 Lembretes:
@@ -28,6 +31,14 @@ Observação: as funções do OpenGL/OpenTK "glTranslate", "glRotate" e "glScale
 ## 1. Especificação
 
 \[Peso 0,5] Especifique as classes, métodos e atributos usando Diagrama de Classes.  
+  
+Se quiserem, podem usar as extensões:  
+[CSharp to PlantUML](https://marketplace.visualstudio.com/items?itemName=pierre3.csharp-to-plantuml)  
+[PlantUML](https://marketplace.visualstudio.com/items?itemName=jebbs.plantuml)  
+  
+A extensão [CSharp to PlantUML] gerar a pasta "plantuml" com os arquivos *.puml para cada classe dos fontes do projeto. Os arquivos \*.puml contém uma descrição textual da diagramação da referida classe.  
+Já a extensão [PlantUML] permite gerar os diagramas dos arquivos *.puml no formato SVG (pasta svg).  
+Para saber mais sobre o PantIUML ver: <https://plantuml.com/>  
 
 ## 2. Estrutura de dados: polígono - adicionar
 
