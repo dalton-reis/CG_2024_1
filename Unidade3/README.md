@@ -1,3 +1,6 @@
+[^1]: AZEVEDO, Eduardo; CONCI, Aura; VASCONCELOS, Cristina. Computação Gráfica: Teoria e Prática: Geração de Imagens. 1. ed. rev. Rio de Janeiro: Alta Books, 2022.  
+[^2]: SILVA, Romano J. M. da; RAPOSO, Alberto B.; GATTAS, Marcelo. Grafo de Cena e Realidade Virtual. Rio de Janeiro: PUC, 2004. Disponível em: https://web.tecgraf.puc-rio.br/~abraposo/INF1366/2007/02_GrafoDeCena_texto.pdf. Acesso em: 27 nov. 2023.  
+
 # Computação Gráfica - Unidade 3  
 
 Interface, Transformações 2D e Seleção, Programação orientada a eventos. Elementos de interface, Eventos e atributos de elementos de interface. Funções callback (teclado e mouse). Transformações de sistemas de coordenadas Transformações geométricas 2D, Algoritmos de seleção, Boundaring Box.  
@@ -5,14 +8,358 @@ Interface, Transformações 2D e Seleção, Programação orientada a eventos. E
 Objetivo: demonstrar conhecimento no desenvolvimento de sistemas com interface gráfica com o usuário. Interpretar, especificar e desenvolver aplicações simples com transformações geométricas.  
 (aulaRabiscos.drawio.svg)
 
-## Material  
-
-[cg-slides_u3.pdf](./cg-slides_u3.pdf "cg-slides_u3.pdf")  
-
 ## [Atividades - Aula](./Atividade3.md "Atividades - Aula")  
 
-[ScanLine](./ScanLine.pdf)  
-[TransformacoesGeometricas](./TransformacoesGeometricas.pdf)  
+<!--[ScanLine](./ScanLine.pdf)  -->
+<!--[TransformacoesGeometricas](./TransformacoesGeometricas.pdf)  -->
+
+## Material  
+
+### Algoritmo de Seleção
+
+![alt text](imgs/ScanLine_01.png)  
+![alt text](imgs/ScanLine_02.png)  
+![alt text](imgs/ScanLine_03.png)  
+![alt text](imgs/ScanLine_04.png)  
+![alt text](imgs/ScanLine_05.png)  
+![alt text](imgs/ScanLine_06.png)  
+![alt text](imgs/ScanLine_07.png)  
+![alt text](imgs/ScanLine_08.png)  
+![alt text](imgs/ScanLine_09.png)  
+
+### Grafo de Cena
+
+Cena:  
+
+- representação abstrata de todos os componentes que são apresentados em um mundo virtual;  
+- todo componente que será representado no ambiente e exercerá um comportamento que afeta outros componentes deverá ser anexado à um nó de cena dentro de uma hierarquia.  
+
+Componentes:  
+
+- Objetos Gráficos;  
+- Iluminação;  
+- Câmera;  
+- etc.  
+
+Grafo de Cena:  
+
+- estrutura composta por arcos e nós, em forma de árvore, utilizada para especificar e documentar programas que representam uma cena gráfica;  
+- composto por um conjunto de símbolos que representam instâncias de objetos de classes específicas.  
+
+São estruturas de dados, organizadas através de classes, onde por meio de hierarquia de objetos e atributos, pode-se mais facilmente especificar cenas complexas. Cada objeto ou atributo é representado por uma classe, que possui informações sobre sua aparência física, dentre outros fatores. Um grafo de cena trata problemas que geralmente surgem em composições ou gerenciamentos de cenas (POZZER, 2007).  
+Popularizado pelo SGI Open Inventor, o grafo de cena protege o desenvolvedor de se preocupar com os detalhes que compõe a renderização, fazendo com que ele foque nos objetos do qual deseja renderizar, ao invés de se preocupar com a lógica da renderização em si (WALSH, 2002).  
+
+Conforme Silva, Raposo e Gattas (2004, p. 3)[^2], “\[...] grafos de cena são ferramentas conceituais para representação de ambientes virtuais tridimensionais nas aplicações de computação gráfica.”. Isso significa que o grafo é uma espécie de mapa para a cena construída, mostrando quais objetos gráficos fazem parte dela, quais objetos possuem filhos, quais suas características (cor, textura, posicionamento etc.). Azevedo, Conci e Vasconcelos (2022, p. 183)[^1] também afirmam que “\[...] é comum que os objetos sejam descritos como malhas poligonais, compostas por conjuntos de vértices e arestas.”. Sendo assim, objetos gráficos são formas compostas por coordenadas que são mapeadas e representadas no mundo gráfico.
+
+<!--
+-->
+
+#### Simbologia  
+
+![Grafo Cena: Simbologia](imgs/GrafoCena_Simbologia.png)  
+
+#### Formalismo  
+
+![Grafo Cena: Formalismo](imgs/GrafoCena_Formalismo.png)  
+
+#### Especificação de um Ambiente Gráfico  
+
+![Grafo Cena: Especificação](imgs/GrafoCena_Especificacao.png)  
+
+#### Grafo de Cena: Transformações geométricas
+
+- OpenGL não implementa o grafo de cena  
+- Grafo de cena: estrutura a cena facilitando o processamento gráfico  
+- Estrutura básica:  
+  - Mundo (com lista de objetos gráficos)  
+  - Objeto gráfico  
+    - Forma: geometria e topologia  
+    - Aparência: cor, material, ...  
+    - Boundaring box  
+    - Transformações geométricas  
+    - Objetos "filhos": é um novo obj. gráfico (herda transformações do pai)  
+
+### Transformações Geométricas  
+
+As Transformações Geométricas (translação, escala e rotação) do Ponto Médio é a prova de que qualquer segmento de reta pode ser transladado, escalado e rotacionado pela simples Transformação de seus pontos extremos.  
+Observação: as transformações são sempre em relação à origem.  
+
+![Transformação: Ponto Médio](imgs/Transformacao_PontoMedio.png)  
+
+#### Translação homogênea 3D: origem
+
+> \[!WARNING]
+> Esta transformação é em relação a origem do sistema de referência.  
+
+A translação de um ponto $P(x,y,z)$ no plano ocorre pela adição ás coordenadas de $P$ dos valores de deslocamento $tx$, $ty$ e $tz$, e por ser uma adição o elemento neutro é zero.  
+
+| Transformação | operação          | elemento neutro                      |
+| ------------- | ----------------- | ------------------------------------ |
+| Translação    | soma              | 0                                    |
+
+##### Translação: Expressão
+
+```math
+P(x,y,z) \Rightarrow P(x',y',z')
+\space\space\space\space\space\space
+\begin{matrix}
+x + tx = x' \\
+y + ty = y' \\
+z + tz = z'
+\end{matrix}
+```
+
+##### Translação: Matriz
+
+```math
+\begin{bmatrix}
+  x \space y \space z
+\end{bmatrix}
++
+\begin{bmatrix}
+  dx \space dy \space dz
+\end{bmatrix}
+=
+\begin{bmatrix}
+  x' \space y' \space z'
+\end{bmatrix}
+```
+
+##### Translação: Matriz Homogênea
+
+```math
+\begin{bmatrix}
+  x \\
+  y \\
+  z \\
+  1
+\end{bmatrix}
+\times
+\begin{bmatrix}
+  1 & 0 & 0 & \textcolor{red}{tx} \\
+  0 & 1 & 0 & \textcolor{red}{ty} \\
+  0 & 0 & 1 & \textcolor{red}{tz} \\
+  0 & 0 & 0 & 1
+ \end{bmatrix}
+ =
+ \begin{bmatrix}
+  x' \\
+  y' \\
+  z' \\
+  1
+\end{bmatrix}
+\space\space\space\space\space\space\space\space\space\space\space\space\space\space\space
+\begin{bmatrix}
+   0 &  4 &  8 & \textcolor{red}{12} \\
+   1 &  5 &  9 & \textcolor{red}{13} \\
+   2 &  6 & 10 & \textcolor{red}{14} \\
+   3 &  7 & 11 & 15
+ \end{bmatrix}
+```
+
+<https://github.com/dalton-reis/CG_Privado/blob/0c0fa929b067efc9f24ddf63d52cc0e82c4980ac/CG_Biblioteca/Transformacao4D.cs#L68-L74>
+
+#### Escala homogênea 3D: origem
+
+> \[!WARNING]
+> Esta transformação é em relação a origem do sistema de referência.  
+
+A escala de um ponto $P(x,y,z)$ no plano ocorre pela multiplicação das coordenadas de $P$ por valores de escala $sx$, $sy$ e $sz$, e por ser uma multiplicação o elemento neutro é um.  
+
+| Transformação | operação          | elemento neutro                      |
+| ------------- | ----------------- | ------------------------------------ |
+| escala        | multiplicação     | 1                                    |
+
+Fator de escala > 1 amplia  
+Fator de escala no intervalo ]0..1\[ reduz  
+
+##### Escala: Expressão
+
+```math
+P(x,y,z) \Rightarrow P(x',y',z')
+\space\space\space\space\space\space
+\begin{matrix}
+x \times tx = x' \\
+y \times ty = y' \\
+z \times tz = z'
+\end{matrix}
+```
+
+##### Escala: Matriz
+
+```math
+\begin{bmatrix}
+  x \\
+  y \\
+  z
+\end{bmatrix}
+\times
+\begin{bmatrix}
+  \textcolor{red}{sx} & 0 & 0 \\
+  0 & \textcolor{red}{sy} & 0 \\
+  0 & 0 & \textcolor{red}{sz}
+ \end{bmatrix}
+=
+\begin{bmatrix}
+  x' \\
+  y' \\
+  z'
+\end{bmatrix}
+```
+
+##### Escala: Matriz Homogênea
+
+```math
+\begin{bmatrix}
+  x \\
+  y \\
+  z \\
+  1
+\end{bmatrix}
+\times
+\begin{bmatrix}
+  \textcolor{red}{sx} & 0 & 0 & 0 \\
+  0 & \textcolor{red}{sy} & 0 & 0 \\
+  0 & 0 & \textcolor{red}{sz} & 0 \\
+  0 & 0 & 0 & 1
+ \end{bmatrix}
+ =
+ \begin{bmatrix}
+  x' \\
+  y' \\
+  z' \\
+  1
+\end{bmatrix}
+\space\space\space\space\space\space\space\space\space\space\space\space\space\space\space
+\begin{bmatrix}
+   \textcolor{red}{0} &  4 &  8 & 12 \\
+   1 &  \textcolor{red}{5} &  9 & 13 \\
+   2 &  6 & \textcolor{red}{10} & 14 \\
+   3 &  7 & 11 & 15
+ \end{bmatrix}
+```
+
+<https://github.com/dalton-reis/CG_Privado/blob/0c0fa929b067efc9f24ddf63d52cc0e82c4980ac/CG_Biblioteca/Transformacao4D.cs#L68-L74>
+
+#### Rotação homogênea 3D: origem
+
+> \[!WARNING]
+> Esta transformação é em relação a origem do sistema de referência.  
+
+A Rotação de um ponto $P(x,y,z)$ no plano ocorre em relação as dimensões do sistema de referência. No caso de um sistema de referência 3D as rotações serão em relação aos eixos $X$, $Y$ e $Z$ definidos pelo ângulo de rotação.  
+
+| Transformação | operação          | elemento neutro                      |
+| ------------- | ----------------- | ------------------------------------ |
+| Rotação       | seno / cosseno    | 0° ou múltiplo de 360°               |
+
+[Como chegar na matriz de Rotação](rotacao.md)  
+
+##### Rotação eixo X: Matriz Homogênea
+
+```math
+\begin{bmatrix}
+  x \\
+  y \\
+  z \\
+  1
+\end{bmatrix}
+\times
+\begin{bmatrix}
+  1 & 0 & 0 & 0 \\
+  0 & \textcolor{red}{cos\alpha} & \textcolor{red}{-sin\alpha} & 0 \\
+  0 & \textcolor{red}{sin\alpha} & \textcolor{red}{cos\alpha} & 0 \\
+  0 & 0 & 0 & 1
+ \end{bmatrix}
+ =
+ \begin{bmatrix}
+  x' \\
+  y' \\
+  z' \\
+  1
+\end{bmatrix}
+\space\space\space\space\space\space\space\space\space\space\space\space\space\space\space
+\begin{bmatrix}
+   0 &  4 &  8 & 12 \\
+   1 &  \textcolor{red}{5} &  \textcolor{red}{9} & 13 \\
+   2 &  \textcolor{red}{6} & \textcolor{red}{10} & 14 \\
+   3 &  7 & 11 & 15
+ \end{bmatrix}
+```
+
+<https://github.com/dalton-reis/CG_Privado/blob/0c0fa929b067efc9f24ddf63d52cc0e82c4980ac/CG_Biblioteca/Transformacao4D.cs#L68-L74>
+
+##### Rotação eixo Y: Matriz Homogênea
+
+```math
+\begin{bmatrix}
+  x \\
+  y \\
+  z \\
+  1
+\end{bmatrix}
+\times
+\begin{bmatrix}
+  \textcolor{red}{cos\alpha} & 0 & \textcolor{red}{-sin\alpha} & 0 \\
+  0 & 1 & 0 & 0 \\
+  \textcolor{red}{sin\alpha} & 0 & \textcolor{red}{cos\alpha} & 0 \\
+  0 & 0 & 0 & 1
+ \end{bmatrix}
+ =
+ \begin{bmatrix}
+  x' \\
+  y' \\
+  z' \\
+  1
+\end{bmatrix}
+\space\space\space\space\space\space\space\space\space\space\space\space\space\space\space
+\begin{bmatrix}
+   \textcolor{red}{0} &  4 &  \textcolor{red}{8} & 12 \\
+   1 &  5 & 9 & 13 \\
+   \textcolor{red}{2} & 6 & \textcolor{red}{10} & 14 \\
+   3 &  7 & 11 & 15
+ \end{bmatrix}
+```
+
+<https://github.com/dalton-reis/CG_Privado/blob/0c0fa929b067efc9f24ddf63d52cc0e82c4980ac/CG_Biblioteca/Transformacao4D.cs#L68-L74>
+
+##### Rotação eixo Z: Matriz Homogênea
+
+```math
+\begin{bmatrix}
+  x \\
+  y \\
+  z \\
+  1
+\end{bmatrix}
+\times
+\begin{bmatrix}
+  \textcolor{red}{cos\alpha} & \textcolor{red}{-sin\alpha} & 0 & 0\\
+  \textcolor{red}{sin\alpha} & \textcolor{red}{cos\alpha} & 0 & 0 \\
+  0 & 0 & 1 & 0 \\
+  0 & 0 & 0 & 1
+ \end{bmatrix}
+ =
+ \begin{bmatrix}
+  x' \\
+  y' \\
+  z' \\
+  1
+\end{bmatrix}
+\space\space\space\space\space\space\space\space\space\space\space\space\space\space\space
+\begin{bmatrix}
+   \textcolor{red}{0} & \textcolor{red}{4} & 8 & 12 \\
+   \textcolor{red}{1} & \textcolor{red}{5} & 9 & 13 \\
+   2 & 6 & 10 & 14 \\
+   3 &  7 & 11 & 15
+ \end{bmatrix}
+```
+
+<https://github.com/dalton-reis/CG_Privado/blob/0c0fa929b067efc9f24ddf63d52cc0e82c4980ac/CG_Biblioteca/Transformacao4D.cs#L68-L74>
+
+### Composição de Transformações Geométricas  
+
+![alt text](imgs/Transformacao_Composicao_1.png)  
+![alt text](imgs/Transformacao_Composicao_2.png)  
 
 <!--
 ## Download

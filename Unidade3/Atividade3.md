@@ -84,11 +84,15 @@ Caso o polígono seja selecionado se deve exibir a sua BBbox, caso contrário a 
 
 Atenção: usar matriz de transformação e não alterar os valores dos vértices dos polígonos.  
 
+[Conteúdo](./README.md#translação-homogênea-3d-origem)  
+
 ## 11. Transformações Geométricas: escala
 
 \[Peso 1,0] Utilizando as teclas Home/End redimensione o polígono selecionado em relação ao centro da sua BBox.  
 
 Atenção: usar matriz de transformação e não alterar os valores dos vértices dos polígonos.  
+
+[Conteúdo](./README.md#escala-homogênea-3d-origem)  
 
 ## 12. Transformações Geométricas: rotação
 
@@ -96,17 +100,23 @@ Atenção: usar matriz de transformação e não alterar os valores dos vértice
 
 Atenção: usar matriz de transformação e não alterar os valores dos vértices dos polígonos.  
 
+[Conteúdo](./README.md#rotação-homogênea-3d-origem)  
+
 ## 13. Grafo de cena: selecionar
 
 \[Peso 0,5] Permita adicionar polígonos “filhos” num polígono selecionado utilizando a estrutura do grafo de cena.  
 
 Atenção: usar matriz de transformação global para acumular transformações de acordo com o grafo de cena.  
 
+[Conteúdo](./README.md#grafo-de-cena)  
+
 ## 14. Grafo de cena: transformação
 
 \[Peso 0,5] Considere a transformação global ao transformar (translação/escala/rotação) um polígono “pai”.  
 
 Atenção: usar matriz de transformação global para acumular transformações de acordo com o grafo de cena.  
+
+[Conteúdo](./README.md#grafo-de-cena)  
 
 ## Atenção
 
