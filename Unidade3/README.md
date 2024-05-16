@@ -156,8 +156,8 @@ z + tz = z'
    3 &  7 & 11 & 15
  \end{bmatrix}
 ```
-<https://github.com/dalton-reis/CG_2024_1/blob/main/CG_Biblioteca/Transformacao4D.cs#L57-L64>
-<https://github.com/dalton-reis/CG_Privado/blob/0c0fa929b067efc9f24ddf63d52cc0e82c4980ac/CG_Biblioteca/Transformacao4D.cs#L68-L74>
+
+<https://github.com/dalton-reis/CG_2024_1/blob/94f6836b3ec0d5a3a77dfb182cf0263223d2a60d/CG_Biblioteca/Transformacao4D.cs#L68-L74>
 
 #### Escala homogênea 3D: origem
 
@@ -239,7 +239,7 @@ z \times tz = z'
  \end{bmatrix}
 ```
 
-<https://github.com/dalton-reis/CG_Privado/blob/0c0fa929b067efc9f24ddf63d52cc0e82c4980ac/CG_Biblioteca/Transformacao4D.cs#L68-L74>
+<https://github.com/dalton-reis/CG_2024_1/blob/94f6836b3ec0d5a3a77dfb182cf0263223d2a60d/CG_Biblioteca/Transformacao4D.cs#L79-L85>
 
 #### Rotação homogênea 3D: origem
 
@@ -286,7 +286,7 @@ A Rotação de um ponto $P(x,y,z)$ no plano ocorre em relação as dimensões do
  \end{bmatrix}
 ```
 
-<https://github.com/dalton-reis/CG_Privado/blob/0c0fa929b067efc9f24ddf63d52cc0e82c4980ac/CG_Biblioteca/Transformacao4D.cs#L68-L74>
+<https://github.com/dalton-reis/CG_2024_1/blob/94f6836b3ec0d5a3a77dfb182cf0263223d2a60d/CG_Biblioteca/Transformacao4D.cs#L89-L96>
 
 ##### Rotação eixo Y: Matriz Homogênea
 
@@ -320,7 +320,7 @@ A Rotação de um ponto $P(x,y,z)$ no plano ocorre em relação as dimensões do
  \end{bmatrix}
 ```
 
-<https://github.com/dalton-reis/CG_Privado/blob/0c0fa929b067efc9f24ddf63d52cc0e82c4980ac/CG_Biblioteca/Transformacao4D.cs#L68-L74>
+<https://github.com/dalton-reis/CG_2024_1/blob/94f6836b3ec0d5a3a77dfb182cf0263223d2a60d/CG_Biblioteca/Transformacao4D.cs#L100-L107>
 
 ##### Rotação eixo Z: Matriz Homogênea
 
@@ -354,7 +354,7 @@ A Rotação de um ponto $P(x,y,z)$ no plano ocorre em relação as dimensões do
  \end{bmatrix}
 ```
 
-<https://github.com/dalton-reis/CG_Privado/blob/0c0fa929b067efc9f24ddf63d52cc0e82c4980ac/CG_Biblioteca/Transformacao4D.cs#L68-L74>
+<https://github.com/dalton-reis/CG_2024_1/blob/94f6836b3ec0d5a3a77dfb182cf0263223d2a60d/CG_Biblioteca/Transformacao4D.cs#L111-L118>
 
 ### Composição de Transformações Geométricas  
 
