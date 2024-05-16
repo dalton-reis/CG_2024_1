@@ -156,7 +156,7 @@ z + tz = z'
    3 &  7 & 11 & 15
  \end{bmatrix}
 ```
-
+<https://github.com/dalton-reis/CG_2024_1/blob/main/CG_Biblioteca/Transformacao4D.cs#L57-L64>
 <https://github.com/dalton-reis/CG_Privado/blob/0c0fa929b067efc9f24ddf63d52cc0e82c4980ac/CG_Biblioteca/Transformacao4D.cs#L68-L74>
 
 #### Escala homogênea 3D: origem
