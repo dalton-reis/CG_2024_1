@@ -18,6 +18,11 @@ namespace gcgcg
 
             //TODO: encontrar o comando certo para não dar problema de dobrar a resolução de tela no MacOS
             // ToolkitOptions.Default.EnableHighResolution = false;
+            // Toolkit.Init(new ToolkitOptions { EnableHighResolution = false });
+            //ToolkitOptions.EnableHighResolution = false;
+        
+
+
 
             using var window = new Mundo(GameWindowSettings.Default, nativeWindowSettings);
             window.Run();

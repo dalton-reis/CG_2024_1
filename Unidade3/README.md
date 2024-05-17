@@ -1,6 +1,3 @@
-[^1]: AZEVEDO, Eduardo; CONCI, Aura; VASCONCELOS, Cristina. Computação Gráfica: Teoria e Prática: Geração de Imagens. 1. ed. rev. Rio de Janeiro: Alta Books, 2022.  
-[^2]: SILVA, Romano J. M. da; RAPOSO, Alberto B.; GATTAS, Marcelo. Grafo de Cena e Realidade Virtual. Rio de Janeiro: PUC, 2004. Disponível em: https://web.tecgraf.puc-rio.br/~abraposo/INF1366/2007/02_GrafoDeCena_texto.pdf. Acesso em: 27 nov. 2023.  
-
 # Computação Gráfica - Unidade 3  
 
 Interface, Transformações 2D e Seleção, Programação orientada a eventos. Elementos de interface, Eventos e atributos de elementos de interface. Funções callback (teclado e mouse). Transformações de sistemas de coordenadas Transformações geométricas 2D, Algoritmos de seleção, Boundaring Box.  
@@ -75,7 +72,7 @@ Conforme Silva, Raposo e Gattas (2004, p. 3)[^2], “\[...] grafos de cena são 
   - Objeto gráfico  
     - Forma: geometria e topologia  
     - Aparência: cor, material, ...  
-    - Boundaring box  
+    - Boundary box  
     - Transformações geométricas  
     - Objetos "filhos": é um novo obj. gráfico (herda transformações do pai)  
 
@@ -85,6 +82,48 @@ As Transformações Geométricas (translação, escala e rotação) do Ponto Mé
 Observação: as transformações são sempre em relação à origem.  
 
 ![Transformação: Ponto Médio](imgs/Transformacao_PontoMedio.png)  
+
+> [!IMPORTANT]
+>
+> As transformações de translação, escala e rotação utilizam as operações de soma, multiplicação e seno/cosseno, respectivamente. Mas não são operações aritméticas, mas sim operações geométricas. E no caso de transformações geométricas homogêneas se utiliza **matrizes** para fazer estas operações. A matriz tem a dimensão do espaço gráfico $(x,y,z)$ mais um, onde este mais um é o espaço homogêneo. E para se fazer transformação (translação, escala e rotação) se **multiplica** um ponto por esta matriz.  
+
+<https://github.com/dalton-reis/CG_2024_1/blob/7c4dd0e0890a5f1aa31146d2ad04306c494ab664/CG_Biblioteca/Transformacao4D.cs#L24-L29>
+
+#### Matriz: propriedades
+
+- se deve respeitar a regra das dimensões para poder multiplicar matrizes entre si  
+- a multiplicação de matrizes é associativa mas não comutativa  
+
+[Exemplo de Multiplicação de Matrizes](https://www.geogebra.org/m/ETHXK756)  
+
+##### Matriz Identidade
+
+A matriz $identidade$ é o elemento neutro na multiplicação de matrizes.
+
+```math
+\begin{bmatrix}
+   a &  e & i & m \\
+   b &  f & j & n \\
+   c &  g & k & o \\
+   d &  h & l & p
+ \end{bmatrix}
+\times
+\begin{bmatrix}
+  1 & 0 & 0 & 0 \\
+  0 & 1 & 0 & 0 \\
+  0 & 0 & 1 & 0 \\
+  0 & 0 & 0 & 1
+ \end{bmatrix}
+ =
+\begin{bmatrix}
+   a &  e & i & m \\
+   b &  f & j & n \\
+   c &  g & k & o \\
+   d &  h & l & p
+ \end{bmatrix}
+```
+
+<https://github.com/dalton-reis/CG_2024_1/blob/7c4dd0e0890a5f1aa31146d2ad04306c494ab664/CG_Biblioteca/Transformacao4D.cs#L56-L64>
 
 #### Translação homogênea 3D: origem
 
@@ -157,7 +196,7 @@ z + tz = z'
  \end{bmatrix}
 ```
 
-<https://github.com/dalton-reis/CG_2024_1/blob/94f6836b3ec0d5a3a77dfb182cf0263223d2a60d/CG_Biblioteca/Transformacao4D.cs#L68-L74>
+<https://github.com/dalton-reis/CG_2024_1/blob/7c4dd0e0890a5f1aa31146d2ad04306c494ab664/CG_Biblioteca/Transformacao4D.cs#L66-L74>
 
 #### Escala homogênea 3D: origem
 
@@ -239,7 +278,7 @@ z \times tz = z'
  \end{bmatrix}
 ```
 
-<https://github.com/dalton-reis/CG_2024_1/blob/94f6836b3ec0d5a3a77dfb182cf0263223d2a60d/CG_Biblioteca/Transformacao4D.cs#L79-L85>
+<https://github.com/dalton-reis/CG_2024_1/blob/7c4dd0e0890a5f1aa31146d2ad04306c494ab664/CG_Biblioteca/Transformacao4D.cs#L76-L85>
 
 #### Rotação homogênea 3D: origem
 
@@ -286,7 +325,7 @@ A Rotação de um ponto $P(x,y,z)$ no plano ocorre em relação as dimensões do
  \end{bmatrix}
 ```
 
-<https://github.com/dalton-reis/CG_2024_1/blob/94f6836b3ec0d5a3a77dfb182cf0263223d2a60d/CG_Biblioteca/Transformacao4D.cs#L89-L96>
+<https://github.com/dalton-reis/CG_2024_1/blob/7c4dd0e0890a5f1aa31146d2ad04306c494ab664/CG_Biblioteca/Transformacao4D.cs#L87-L96>
 
 ##### Rotação eixo Y: Matriz Homogênea
 
@@ -320,7 +359,7 @@ A Rotação de um ponto $P(x,y,z)$ no plano ocorre em relação as dimensões do
  \end{bmatrix}
 ```
 
-<https://github.com/dalton-reis/CG_2024_1/blob/94f6836b3ec0d5a3a77dfb182cf0263223d2a60d/CG_Biblioteca/Transformacao4D.cs#L100-L107>
+<https://github.com/dalton-reis/CG_2024_1/blob/7c4dd0e0890a5f1aa31146d2ad04306c494ab664/CG_Biblioteca/Transformacao4D.cs#L98-L107>
 
 ##### Rotação eixo Z: Matriz Homogênea
 
@@ -354,12 +393,23 @@ A Rotação de um ponto $P(x,y,z)$ no plano ocorre em relação as dimensões do
  \end{bmatrix}
 ```
 
-<https://github.com/dalton-reis/CG_2024_1/blob/94f6836b3ec0d5a3a77dfb182cf0263223d2a60d/CG_Biblioteca/Transformacao4D.cs#L111-L118>
+<https://github.com/dalton-reis/CG_2024_1/blob/7c4dd0e0890a5f1aa31146d2ad04306c494ab664/CG_Biblioteca/Transformacao4D.cs#L109-L118>
 
 ### Composição de Transformações Geométricas  
 
+As transformações de translação, escala e rotação são **independentes** umas das outras.  
+
 ![alt text](imgs/Transformacao_Composicao_1.png)  
 ![alt text](imgs/Transformacao_Composicao_2.png)  
+
+## Rabiscos
+
+![aulaRabiscos](aulaRabiscos.drawio.svg)  
+
+## ⏭ [Unidade 4)](../Unidade4/README.md "Unidade 4")  
+
+[^1]: AZEVEDO, Eduardo; CONCI, Aura; VASCONCELOS, Cristina. Computação Gráfica: Teoria e Prática: Geração de Imagens. 1. ed. rev. Rio de Janeiro: Alta Books, 2022.  
+[^2]: SILVA, Romano J. M. da; RAPOSO, Alberto B.; GATTAS, Marcelo. Grafo de Cena e Realidade Virtual. Rio de Janeiro: PUC, 2004. Disponível em: <https://web.tecgraf.puc-rio.br/~abraposo/INF1366/2007/02_GrafoDeCena_texto.pdf>. Acesso em: 27 nov. 2023.  
 
 <!--
 ## Download
@@ -457,14 +507,4 @@ Já, na Classe Objeto.cs, um exemplo de método para rotação em torno de um po
 ```
 
 ----------
-
-## ⏭ [Unidade 4)](../Unidade4/README.md "Unidade 4")  
 -->
-<!--
-[FIXME: arrumar as fontes bibliográficas]  
-## Principais Referências Bibliográficas​
--->
-
-## Rabiscos
-
-![aulaRabiscos](aulaRabiscos.drawio.svg)  
