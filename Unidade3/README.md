@@ -92,7 +92,6 @@ Observação: as transformações são sempre em relação à origem.
 #### Matriz: propriedades
 
 - se deve respeitar a regra das dimensões para poder multiplicar matrizes entre si  
-- a multiplicação de matrizes é associativa mas não comutativa  
 
 [Exemplo de Multiplicação de Matrizes](https://www.geogebra.org/m/ETHXK756)  
 
@@ -397,10 +396,23 @@ A Rotação de um ponto $P(x,y,z)$ no plano ocorre em relação as dimensões do
 
 ### Composição de Transformações Geométricas  
 
-As transformações de translação, escala e rotação são **independentes** umas das outras.  
+As transformações de translação, escala e rotação são **independentes** umas das outras. Mas se pode multiplicar matrizes de transformações entre si para **acumular** transformações, e assim, reduzir expressivamente o custo das transformações de pontos de uma cena. Pois em vez de se multiplicar os pontos de uma cena por uma sequência de matrizes de transformações, se multiplica estas matrizes entre si gerando uma **matriz de transformação global**, e se multiplica os pontos de uma cena por esta matriz para se ter as transformações nos objetos.  
 
-![alt text](imgs/Transformacao_Composicao_1.png)  
-![alt text](imgs/Transformacao_Composicao_2.png)  
+- a multiplicação de matrizes é associativa mas não comutativa  
+
+Ordem das transformações: rotação seguida de uma translação  
+![alt text](imgs/Transformacao_Composicao_1.png)
+
+Ordem das transformações: translação seguida de uma rotação  
+![alt text](imgs/Transformacao_Composicao_2.png)
+
+Observe que o resultado final é diferente, ou seja, a ordem das transformações interfere no resultado após uma sequência de transformações. Caso "clássico é a transformação de escala ou rotação a um ponto fixo, onde se usa a sequência:
+
+- translação para origem em relação ao ponto que se quer fixar a transformação;  
+- a transformação, no caso, escala ou rotação;  
+- translação inversa da origem para o ponto que se fixou a transformação.  
+
+A multiplicação de diferentes matrizes de transformação, entre si, geram a concatenação de todas as modificações em uma única estrutura, que é chamada de matriz de modelação-visualização. Ela é responsável por determinar dentro de um contexto, as posições e modificações dos objetos 3D de uma cena.  
 
 ## Rabiscos
 
