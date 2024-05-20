@@ -24,6 +24,8 @@ Objetivo: demonstrar conhecimento no desenvolvimento de sistemas com interface g
 ![alt text](imgs/ScanLine_08.png)  
 ![alt text](imgs/ScanLine_09.png)  
 
+### [VisEdu-CG]
+
 ### Grafo de Cena
 
 Cena:  
@@ -422,6 +424,8 @@ A multiplicação de diferentes matrizes de transformação, entre si, geram a c
 
 [^1]: AZEVEDO, Eduardo; CONCI, Aura; VASCONCELOS, Cristina. Computação Gráfica: Teoria e Prática: Geração de Imagens. 1. ed. rev. Rio de Janeiro: Alta Books, 2022.  
 [^2]: SILVA, Romano J. M. da; RAPOSO, Alberto B.; GATTAS, Marcelo. Grafo de Cena e Realidade Virtual. Rio de Janeiro: PUC, 2004. Disponível em: <https://web.tecgraf.puc-rio.br/~abraposo/INF1366/2007/02_GrafoDeCena_texto.pdf>. Acesso em: 27 nov. 2023.  
+
+[VisEdu-CG]: <https://gcgfurb.github.io/yoda/> "VisEdu-CG"  
 
 <!--
 ## Download
