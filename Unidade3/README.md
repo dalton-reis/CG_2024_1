@@ -283,6 +283,9 @@ z \times tz = z'
 
 #### Rotação homogênea 3D: origem
 
+Sentido anti-horário:  
+![alt text](imgs/Graus.drawio.svg)  
+
 > \[!WARNING]
 > Esta transformação é em relação a origem do sistema de referência.  
 
