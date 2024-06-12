@@ -11,8 +11,8 @@ using OpenTK.Windowing.Common;
 using OpenTK.Windowing.GraphicsLibraryFramework;
 using OpenTK.Windowing.Desktop;
 using System;
-using OpenTK.Mathematics;
 using System.Collections.Generic;
+using OpenTK.Mathematics;
 
 namespace gcgcg
 {

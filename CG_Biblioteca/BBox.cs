@@ -143,7 +143,7 @@ namespace CG_Biblioteca
 
       _shaderAmarela.Use();
       GL.DrawArrays(PrimitiveType.LineLoop, 0, ((_bbox.Length - 1) / 3));   // desenha a BBox
-      GL.PointSize(20);
+      GL.PointSize(10);
       GL.DrawArrays(PrimitiveType.Points, ((_bbox.Length - 1) / 3), 1);     // desenha ponto centro BBox
 
 #elif CG_DirectX && !CG_OpenGL

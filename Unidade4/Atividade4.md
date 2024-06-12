@@ -1,5 +1,7 @@
 # Unidade 4: Conceitos Básicos 3D - atividade  
 
+\[peso: 8,0]  
+
 Lembretes:
 
 - todas as questões deste trabalho devem ser desenvolvidas para serem executadas em um **único** projeto.  
