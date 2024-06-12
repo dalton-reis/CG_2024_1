@@ -4,6 +4,7 @@ Lembretes:
 
 - todas as questões deste trabalho devem ser desenvolvidas para serem executadas em um **único** projeto.  
 - obrigatoriamente devem usar as classes disponibilizadas na Unidade2 e Unidade3, junto com as que foram criadas nesta unidade em [CG_N4_Exemplo](./CG_N4_Exemplo/).  
+Mas **ATENÇÃO**, o [CG_N4_Exemplo](./CG_N4_Exemplo/) tem alguns ajustes para ser feito, como por exemplo, algumas faces do cubo não estão na orientação certa e devem ser ajustadas.  
 - usem a pasta **Unidade4** do GitHub da sua equipe para desenvolver/entregar o seu código.  
 
 ## O que deve ser feito
