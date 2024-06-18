@@ -1,5 +1,6 @@
 #define CG_OpenGL
 #define CG_Debug
+#define CG_Gizmo  // debugar gráfico.
 // #define CG_DirectX
 
 using CG_Biblioteca;
@@ -13,6 +14,7 @@ namespace gcgcg
   {
     // Objeto
     private readonly char rotulo;
+    public char Rotulo { get => rotulo; }
     protected Objeto paiRef;
     private readonly List<Objeto> objetosLista = new List<Objeto>();
     private PrimitiveType primitivaTipo = PrimitiveType.LineLoop;
@@ -23,7 +25,6 @@ namespace gcgcg
     public Shader ShaderObjeto { set => _shaderObjeto = value; }
 
     protected List<Ponto4D> pontosLista = [];
-    public int PontosListaTamanho { get => pontosLista.Count; }
     private int _vertexBufferObject;
     private int _vertexArrayObject;
 
@@ -35,14 +36,15 @@ namespace gcgcg
     }
 
     // Transformações do objeto
-    private Transformacao4D matriz = new Transformacao4D();
+    private Transformacao4D matriz = new();
+    private static Transformacao4D matrizGlobal = new();
 
     /// Matrizes temporarias que sempre sao inicializadas com matriz Identidade entao podem ser "static".
-    private static Transformacao4D matrizTmpTranslacao = new Transformacao4D();
-    private static Transformacao4D matrizTmpTranslacaoInversa = new Transformacao4D();
-    private static Transformacao4D matrizTmpEscala = new Transformacao4D();
-    private static Transformacao4D matrizTmpRotacao = new Transformacao4D();
-    private static Transformacao4D matrizGlobal = new Transformacao4D();
+    private static Transformacao4D matrizTmpTranslacao = new();
+    private static Transformacao4D matrizTmpTranslacaoInversa = new();
+    private static Transformacao4D matrizTmpEscala = new();
+    private static Transformacao4D matrizTmpRotacao = new();
+    private static Transformacao4D matrizTmpGlobal = new();
     private char eixoRotacao = 'z';
     public void TrocaEixoRotacao(char eixo) => eixoRotacao = eixo;
 
@@ -80,7 +82,6 @@ namespace gcgcg
         vertices[i + 2] = (float)pontosLista[ptoLista].Z;
         ptoLista++;
       }
-      bBox.Atualizar(matriz, pontosLista);
 
       GL.PointSize(primitivaTamanho);
 
@@ -93,7 +94,17 @@ namespace gcgcg
       GL.EnableVertexAttribArray(0);
     }
 
-    public void Desenhar(Transformacao4D matrizGrafo)
+    public Transformacao4D ObjetoMatrizGlobal(Transformacao4D matrizGlobalPai)
+    {
+      if (rotulo != '@')
+      {
+        matrizGlobalPai = paiRef.matriz.MultiplicarMatriz(matrizGlobalPai);
+        matrizGlobalPai = paiRef.ObjetoMatrizGlobal(matrizGlobalPai);
+      }
+      return matrizGlobalPai;
+    }
+
+    public void Desenhar(Transformacao4D matrizGrafo, Objeto objetoSelecionado)
     {
 #if CG_OpenGL && !CG_DirectX
       GL.PointSize(primitivaTamanho);
@@ -111,10 +122,18 @@ namespace gcgcg
 #elif (CG_DirectX && CG_OpenGL) || (!CG_DirectX && !CG_OpenGL)
       Console.WriteLine(" .. ERRO de Render - escolha OpenGL ou DirectX !!");
 #endif
+#if CG_Gizmo
+        if (objetoSelecionado == this)
+        {
+          matrizGlobal = ObjetoMatrizGlobal(matriz);
+          bBox.Atualizar(matrizGlobal, pontosLista);
+          bBox.Desenhar();
+        }
+#endif
       }
       for (var i = 0; i < objetosLista.Count; i++)
       {
-        objetosLista[i].Desenhar(matrizGrafo);
+        objetosLista[i].Desenhar(matrizGrafo, objetoSelecionado);
       }
     }
 
@@ -123,11 +142,6 @@ namespace gcgcg
     public void FilhoAdicionar(Objeto filho)
     {
       this.objetosLista.Add(filho);
-    }
-
-    public Ponto4D PontosId(int id)
-    {
-      return pontosLista[id];
     }
 
     public void PontosAdicionar(Ponto4D pto)
@@ -142,13 +156,22 @@ namespace gcgcg
       ObjetoAtualizar();
     }
 
-    public void PontosLimpar()
+    public void PontosApagar()
     {
       pontosLista.Clear();
       ObjetoAtualizar();
     }
 
     #endregion
+
+    public Ponto4D MatrizGlobalInversa(Ponto4D mousePto)
+    {
+      matrizGlobal = ObjetoMatrizGlobal(matriz);    // Atualiza a matrizGlobal
+
+      matrizGlobal.Inversa();
+      return matrizGlobal.MultiplicarPonto(mousePto);
+    }
+
 
     #region Objeto: Grafo de Cena
 
@@ -169,17 +192,14 @@ namespace gcgcg
       return null;
     }
 
-    public Objeto GrafocenaBuscaProximo(Objeto objetoAtual)
+    public Dictionary<char,Objeto> GrafocenaAtualizar(Dictionary<char,Objeto> lista)
     {
-      objetoAtual = GrafocenaBusca(Utilitario.CharProximo(objetoAtual.rotulo));
-      if (objetoAtual != null)
+      lista.Add(rotulo,this);
+      foreach (var objeto in objetosLista)
       {
-        return objetoAtual;
+        lista = objeto.GrafocenaAtualizar(lista);
       }
-      else
-      {
-        return GrafocenaBusca(Utilitario.CharProximo('@'));
-      }
+      return lista;
     }
 
     public void GrafocenaImprimir(string idt)
@@ -197,7 +217,10 @@ namespace gcgcg
 
     public void MatrizImprimir()
     {
-      Console.WriteLine(matriz);
+      System.Console.WriteLine(matriz);
+
+      matrizGlobal = ObjetoMatrizGlobal(matriz);
+      System.Console.WriteLine(matrizGlobal);
     }
     public void MatrizAtribuirIdentidade()
     {
@@ -221,19 +244,19 @@ namespace gcgcg
 
     public void MatrizEscalaXYZBBox(double Sx, double Sy, double Sz)
     {
-      matrizGlobal.AtribuirIdentidade();
+      matrizTmpGlobal.AtribuirIdentidade();
       Ponto4D pontoPivo = bBox.ObterCentro;
 
       matrizTmpTranslacao.AtribuirTranslacao(-pontoPivo.X, -pontoPivo.Y, -pontoPivo.Z); // Inverter sinal
-      matrizGlobal = matrizTmpTranslacao.MultiplicarMatriz(matrizGlobal);
+      matrizTmpGlobal = matrizTmpTranslacao.MultiplicarMatriz(matrizTmpGlobal);
 
       matrizTmpEscala.AtribuirEscala(Sx, Sy, Sz);
-      matrizGlobal = matrizTmpEscala.MultiplicarMatriz(matrizGlobal);
+      matrizTmpGlobal = matrizTmpEscala.MultiplicarMatriz(matrizTmpGlobal);
 
       matrizTmpTranslacaoInversa.AtribuirTranslacao(pontoPivo.X, pontoPivo.Y, pontoPivo.Z);
-      matrizGlobal = matrizTmpTranslacaoInversa.MultiplicarMatriz(matrizGlobal);
+      matrizTmpGlobal = matrizTmpTranslacaoInversa.MultiplicarMatriz(matrizTmpGlobal);
 
-      matriz = matriz.MultiplicarMatriz(matrizGlobal);
+      matriz = matriz.MultiplicarMatriz(matrizTmpGlobal);
 
       ObjetoAtualizar();
     }
@@ -264,19 +287,19 @@ namespace gcgcg
     }
     public void MatrizRotacaoZBBox(double angulo)
     {
-      matrizGlobal.AtribuirIdentidade();
+      matrizTmpGlobal.AtribuirIdentidade();
       Ponto4D pontoPivo = bBox.ObterCentro;
 
       matrizTmpTranslacao.AtribuirTranslacao(-pontoPivo.X, -pontoPivo.Y, -pontoPivo.Z); // Inverter sinal
-      matrizGlobal = matrizTmpTranslacao.MultiplicarMatriz(matrizGlobal);
+      matrizTmpGlobal = matrizTmpTranslacao.MultiplicarMatriz(matrizTmpGlobal);
 
       MatrizRotacaoEixo(angulo);
-      matrizGlobal = matrizTmpRotacao.MultiplicarMatriz(matrizGlobal);
+      matrizTmpGlobal = matrizTmpRotacao.MultiplicarMatriz(matrizTmpGlobal);
 
       matrizTmpTranslacaoInversa.AtribuirTranslacao(pontoPivo.X, pontoPivo.Y, pontoPivo.Z);
-      matrizGlobal = matrizTmpTranslacaoInversa.MultiplicarMatriz(matrizGlobal);
+      matrizTmpGlobal = matrizTmpTranslacaoInversa.MultiplicarMatriz(matrizTmpGlobal);
 
-      matriz = matriz.MultiplicarMatriz(matrizGlobal);
+      matriz = matriz.MultiplicarMatriz(matrizTmpGlobal);
 
       ObjetoAtualizar();
     }
@@ -304,7 +327,7 @@ namespace gcgcg
     protected string ImprimeToString()
     {
       string retorno;
-      retorno = "__ Objeto: " + rotulo + "\n";
+      retorno = "__ Objeto Original: " + rotulo + "\n";
       for (var i = 0; i < pontosLista.Count; i++)
       {
         retorno += "P" + i + "[ " +
@@ -313,6 +336,18 @@ namespace gcgcg
         string.Format("{0,10}", pontosLista[i].Z) + " | " +
         string.Format("{0,10}", pontosLista[i].W) + " ]" + "\n";
       }
+
+      retorno += "__ Objeto Transformado: " + rotulo + "\n";
+      for (var i = 0; i < pontosLista.Count; i++)
+      {
+        retorno += "P" + i + "[ " +
+        string.Format("{0,10}", pontosLista[i].X) + " | " +
+        string.Format("{0,10}", pontosLista[i].Y) + " | " +
+        string.Format("{0,10}", pontosLista[i].Z) + " | " +
+        string.Format("{0,10}", pontosLista[i].W) + " ]" + "\n";
+      }
+
+      bBox.Atualizar(ObjetoMatrizGlobal(matriz), pontosLista);
       retorno += bBox.ToString();
       return retorno;
     }

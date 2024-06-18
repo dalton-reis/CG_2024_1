@@ -21,7 +21,9 @@ namespace gcgcg
     private static Objeto mundo = null;
 
     private char rotuloAtual = '?';
+    private Dictionary<char, Objeto> grafoLista = [];
     private Objeto objetoSelecionado = null;
+    // private Objeto objetoNovo = null;
 
     private readonly float[] _sruEixos =
     [
@@ -32,9 +34,6 @@ namespace gcgcg
 
     private int _vertexBufferObject_sruEixos;
     private int _vertexArrayObject_sruEixos;
-
-    private int _vertexBufferObject_bbox;
-    private int _vertexArrayObject_bbox;
 
     private Shader _shaderBranca;
     private Shader _shaderVermelha;
@@ -48,6 +47,40 @@ namespace gcgcg
       : base(gameWindowSettings, nativeWindowSettings)
     {
       mundo ??= new Objeto(null, ref rotuloAtual); //padrão Singleton
+    }
+
+    private void GrafocenaAtualizar()
+    {
+      grafoLista.Clear();
+      grafoLista = mundo.GrafocenaAtualizar(grafoLista);
+    }
+
+    private bool GrafoCenaProximo()
+    {
+      GrafocenaAtualizar();
+      var itGrafo = grafoLista.GetEnumerator();
+      itGrafo.MoveNext();
+      itGrafo.MoveNext();
+      if (objetoSelecionado == null)
+      {
+        objetoSelecionado = itGrafo.Current.Value;
+        return false;
+      }
+      if (objetoSelecionado.Rotulo == '@')
+      {
+        objetoSelecionado = itGrafo.Current.Value;
+        return true;
+      }
+      do
+      {
+        if (itGrafo.Current.Key == objetoSelecionado.Rotulo)
+        {
+          itGrafo.MoveNext();
+          objetoSelecionado = itGrafo.Current.Value;
+          return true;
+        }
+      } while (itGrafo.MoveNext());
+      return false;
     }
 
     protected override void OnLoad()
@@ -105,11 +138,10 @@ namespace gcgcg
 
       GL.Clear(ClearBufferMask.ColorBufferBit);
 
-      mundo.Desenhar(new Transformacao4D());
+      mundo.Desenhar(new Transformacao4D(), objetoSelecionado);
 
-#if CG_Gizmo      
+#if CG_Gizmo
       Gizmo_Sru3D();
-      Gizmo_BBox();
 #endif
       SwapBuffers();
     }
@@ -123,23 +155,22 @@ namespace gcgcg
       var estadoTeclado = KeyboardState;
       if (estadoTeclado.IsKeyDown(Keys.Escape))
         Close();
+
+      #region Funções de apoio para o desenvolvimento. Não é do enunciado  
       if (estadoTeclado.IsKeyPressed(Keys.Space))
-      {
-        if (objetoSelecionado == null)
-          objetoSelecionado = mundo;
-        // objetoSelecionado.shaderObjeto = _shaderBranca;
-        objetoSelecionado = mundo.GrafocenaBuscaProximo(objetoSelecionado);
-        // objetoSelecionado.shaderObjeto = _shaderAmarela;
-      }
-      if (estadoTeclado.IsKeyPressed(Keys.G))                 //TODO: testar com grafo maior ,, irmãos
+        GrafoCenaProximo();
+      if (estadoTeclado.IsKeyPressed(Keys.F))
         mundo.GrafocenaImprimir("");
-      if (estadoTeclado.IsKeyPressed(Keys.P) && objetoSelecionado != null)
-        Console.WriteLine(objetoSelecionado.ToString());
+      if (estadoTeclado.IsKeyPressed(Keys.T) && objetoSelecionado != null)
+        System.Console.WriteLine(objetoSelecionado.ToString());
       if (estadoTeclado.IsKeyPressed(Keys.M) && objetoSelecionado != null)
         objetoSelecionado.MatrizImprimir();
-      //TODO: não está atualizando a BBox com as transformações geométricas
       if (estadoTeclado.IsKeyPressed(Keys.I) && objetoSelecionado != null)
         objetoSelecionado.MatrizAtribuirIdentidade();
+      if (estadoTeclado.IsKeyPressed(Keys.N) && objetoSelecionado != null)
+        objetoSelecionado = null;
+      #endregion
+
       if (estadoTeclado.IsKeyPressed(Keys.Left) && objetoSelecionado != null)
         objetoSelecionado.MatrizTranslacaoXYZ(-0.05, 0, 0);
       if (estadoTeclado.IsKeyPressed(Keys.Right) && objetoSelecionado != null)
@@ -152,7 +183,7 @@ namespace gcgcg
         objetoSelecionado.MatrizEscalaXYZ(2, 2, 2);
       if (estadoTeclado.IsKeyPressed(Keys.PageDown) && objetoSelecionado != null)
         objetoSelecionado.MatrizEscalaXYZ(0.5, 0.5, 0.5);
-      if (estadoTeclado.IsKeyPressed(Keys.Home) && objetoSelecionado != null)   //FIXME: problema depois de usa escala pto qquer, pois escala pto fixo não usa o novo centro da BBOX
+      if (estadoTeclado.IsKeyPressed(Keys.Home) && objetoSelecionado != null)
         objetoSelecionado.MatrizEscalaXYZBBox(0.5, 0.5, 0.5);
       if (estadoTeclado.IsKeyPressed(Keys.End) && objetoSelecionado != null)
         objetoSelecionado.MatrizEscalaXYZBBox(2, 2, 2);
@@ -160,7 +191,7 @@ namespace gcgcg
         objetoSelecionado.MatrizRotacao(10);
       if (estadoTeclado.IsKeyPressed(Keys.D2) && objetoSelecionado != null)
         objetoSelecionado.MatrizRotacao(-10);
-    if (estadoTeclado.IsKeyPressed(Keys.D3) && objetoSelecionado != null)   //FIXME: problema depois de usa rotação pto qquer, não usa o novo centro da BBOX
+      if (estadoTeclado.IsKeyPressed(Keys.D3) && objetoSelecionado != null)
         objetoSelecionado.MatrizRotacaoZBBox(10);
       if (estadoTeclado.IsKeyPressed(Keys.D4) && objetoSelecionado != null)
         objetoSelecionado.MatrizRotacaoZBBox(-10);
@@ -172,8 +203,19 @@ namespace gcgcg
       {
         Console.WriteLine("MouseState.IsButtonPressed(MouseButton.Left)");
         Console.WriteLine("__ Valores do Espaço de Tela");
-        Console.WriteLine("Vector2 mousePosition: " + MousePosition);
         Console.WriteLine("Vector2i windowSize: " + ClientSize);
+
+        Console.WriteLine("Vector2 mousePosition: " + MousePosition);
+
+        Ponto4D sruPonto = Utilitario.NDC_TelaSRU(ClientSize.X, ClientSize.Y, new Ponto4D(MousePosition.X, MousePosition.Y));
+        Console.WriteLine("Vector2 mousePosition (NDC): " + MousePosition);
+        if (objetoSelecionado != null)
+        {
+          sruPonto = objetoSelecionado.MatrizGlobalInversa(sruPonto);
+          Console.WriteLine("Vector2 mousePosition (Objeto): " + MousePosition);
+        }
+
+
       }
       if (MouseState.IsButtonDown(MouseButton.Right) && objetoSelecionado != null)
       {
@@ -192,7 +234,6 @@ namespace gcgcg
       }
 
       #endregion
-
     }
 
     protected override void OnResize(ResizeEventArgs e)
@@ -215,9 +256,6 @@ namespace gcgcg
 
       GL.DeleteBuffer(_vertexBufferObject_sruEixos);
       GL.DeleteVertexArray(_vertexArrayObject_sruEixos);
-
-      GL.DeleteBuffer(_vertexBufferObject_bbox);
-      GL.DeleteVertexArray(_vertexArrayObject_bbox);
 
       GL.DeleteProgram(_shaderBranca.Handle);
       GL.DeleteProgram(_shaderVermelha.Handle);
@@ -256,44 +294,6 @@ namespace gcgcg
     }
 #endif    
 
-#if CG_Gizmo
-    private void Gizmo_BBox()   //FIXME: não é atualizada com as transformações globais
-    {
-      if (objetoSelecionado != null)
-      {
-
-#if CG_OpenGL && !CG_DirectX
-
-        float[] _bbox =
-        {
-        (float) objetoSelecionado.Bbox().ObterMenorX, (float) objetoSelecionado.Bbox().ObterMenorY, 0.0f, // A
-        (float) objetoSelecionado.Bbox().ObterMaiorX, (float) objetoSelecionado.Bbox().ObterMenorY, 0.0f, // B
-        (float) objetoSelecionado.Bbox().ObterMaiorX, (float) objetoSelecionado.Bbox().ObterMaiorY, 0.0f, // C
-        (float) objetoSelecionado.Bbox().ObterMenorX, (float) objetoSelecionado.Bbox().ObterMaiorY, 0.0f  // D
-      };
-
-        _vertexBufferObject_bbox = GL.GenBuffer();
-        GL.BindBuffer(BufferTarget.ArrayBuffer, _vertexBufferObject_bbox);
-        GL.BufferData(BufferTarget.ArrayBuffer, _bbox.Length * sizeof(float), _bbox, BufferUsageHint.StaticDraw);
-        _vertexArrayObject_bbox = GL.GenVertexArray();
-        GL.BindVertexArray(_vertexArrayObject_bbox);
-        GL.VertexAttribPointer(0, 3, VertexAttribPointerType.Float, false, 3 * sizeof(float), 0);
-        GL.EnableVertexAttribArray(0);
-
-        var transform = Matrix4.Identity;
-        GL.BindVertexArray(_vertexArrayObject_bbox);
-        _shaderAmarela.SetMatrix4("transform", transform);
-        _shaderAmarela.Use();
-        GL.DrawArrays(PrimitiveType.LineLoop, 0, (_bbox.Length / 3));
-
-#elif CG_DirectX && !CG_OpenGL
-      Console.WriteLine(" .. Coloque aqui o seu código em DirectX");
-#elif (CG_DirectX && CG_OpenGL) || (!CG_DirectX && !CG_OpenGL)
-      Console.WriteLine(" .. ERRO de Render - escolha OpenGL ou DirectX !!");
-#endif
-      }
-    }
-#endif    
 
   }
 }
